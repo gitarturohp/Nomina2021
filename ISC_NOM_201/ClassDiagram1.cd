@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WindowsApplication1.cargas" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABQDsABAmIAABEAAACDkAgCgAYh4AiggEAIAmAAggE=</HashCode>
+      <FileName>cargas.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.Clase" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAgCARgABQAEABQAABABAACAQCAaAAAAABAAAJA=</HashCode>
+      <FileName>Clase.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.PorFuera" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QiAAhASAADNgAABAAACABAACQAgYRAggAQAoAUEIIAI=</HashCode>
+      <FileName>PorFuera.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.Principal" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUBAJQFCQAAEGQAEmBDjQCCAACcIDkQYQIBAAAICA=</HashCode>
+      <FileName>Principal.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.xml_liquida" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEQQAAAAAEAAAAAAAAAAAAAAAABAQABEAAAg=</HashCode>
+      <FileName>xml_liquida.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.nxml" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAQAAARAAARAACAQAAAAAAAAAAIAAAAAQIIAAAAA=</HashCode>
+      <FileName>xml_nom.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.My.MyApplication" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsApplication1.My.MySettings" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAABAAIAAABAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="WindowsApplication1.My.MySettingsProperty" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="WindowsApplication1.My.Resources.Resources" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

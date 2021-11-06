@@ -1,0 +1,231 @@
+F:\herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+F:\herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+F:\herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.Resources.resources
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.Cache
+F:\herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+F:\herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.Principal.resources
+F:\herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.PorFuera.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.dll
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.pdb
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.xml
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.Cache
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojResolveAssemblyReference.cache
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.dll
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.pdb
+D:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\conexion.xml
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojResolveAssemblyReference.cache
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.cargas.resources
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.nomina.resources
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.Principal.resources
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.PorFuera.resources
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\WindowsApplication1.Resources.resources
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.Cache
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+D:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+G:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\MySql.Data.dll
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.config
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+I:\Herrera\programas\NomSat\ISC_NOM_201\bin\Debug\MySql.Data.dll
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojResolveAssemblyReference.cache
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.lecturaxml.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.Cache
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+I:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.maestros.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojAssemblyReference.cache
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.lecturaxml.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.maestros.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.cache
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CoreCompileInputs.cache
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Interop.ADODB.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.config
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.License.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.Pdf.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.XLS.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Microsoft.mshtml.dll
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.License.xml
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.Pdf.xml
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\bin\Debug\Spire.XLS.xml
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+C:\Users\soporte.GPOZUCARMEX\Documents\Visual Studio 2019\NomSat\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CopyComplete
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.config
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.ReportViewer.Common.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.mshtml.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.xml
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.xml
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.xml
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojAssemblyReference.cache
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.ADODB.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.lecturaxml.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.maestros.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.cache
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CopyComplete
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+I:\Herrera\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.config
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.ReportViewer.Common.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\MySql.Data.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.mshtml.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.xml
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.xml
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.xml
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbprojAssemblyReference.cache
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.ADODB.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.lecturaxml.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.maestros.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.cache
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CopyComplete
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+I:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.config
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe.manifest
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.application
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.exe
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.pdb
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\ISC_NOM_201.xml
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\MySql.Data.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Microsoft.mshtml.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.License.xml
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.Pdf.xml
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\bin\Debug\Spire.XLS.xml
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.ADODB.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Interop.SYLKHSBC.dll
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.ResolveComReference.cache
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.cargas.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Asistencia.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.acceso.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.lecturaxml.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.maestros.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.procesos.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.nomina.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Principal.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.PorFuera.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\Nomina.Resources.resources
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.GenerateResource.cache
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CoreCompileInputs.cache
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe.manifest
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.application
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.AssemblyReference.cache

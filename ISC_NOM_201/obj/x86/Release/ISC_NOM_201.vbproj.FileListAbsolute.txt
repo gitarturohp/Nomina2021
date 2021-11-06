@@ -1,0 +1,13 @@
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\Interop.SYLKHSBC.dll
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\ISC_NOM_201.vbproj.ResolveComReference.cache
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.cargas.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.Asistencia.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.procesos.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.nomina.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.Principal.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.PorFuera.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\WindowsApplication1.Resources.resources
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\ISC_NOM_201.vbproj.GenerateResource.Cache
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\ISC_NOM_201.exe
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\ISC_NOM_201.xml
+G:\Herrera\programas\NomSat\ISC_NOM_201\obj\x86\Release\ISC_NOM_201.pdb
