@@ -2191,4 +2191,121 @@ Public Class PorFuera
         hoja = Nothing
         MsgBox("Archivo creado: " + fic)
     End Sub
+
+    Private Sub AcumuladoPorTrabajadorConceptoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcumuladoPorTrabajadorConceptoToolStripMenuItem.Click
+        Dim ini = 0
+        Dim fin = 0
+        While True
+            ini = Val(InputBox("Semana inicial"))
+            If ini = 0 Then
+                Exit Sub
+            End If
+            a.qr("select * from anom201 where h1_semana=" + ini.ToString, 1)
+            If a.rs.HasRows Then
+                Exit While
+            Else
+                MsgBox("Semana incorrecta")
+            End If
+        End While
+        While True
+            fin = Val(InputBox("Semana final"))
+            If fin = 0 Then
+                Exit Sub
+            End If
+            If (fin - ini) > 77 Then
+                MsgBox("Rango demasiado amplio, reduce la semana, demasiados registros pueden causar perdida de informacion.")
+            Else
+                a.qr("select * from anom201 where h1_semana=" + fin.ToString, 1)
+                If a.rs.HasRows Then
+                    Exit While
+                Else
+                    MsgBox("Semana incorrecta")
+                End If
+            End If
+        End While
+        Dim archivo = "c:\temp\rep_acumulado_"
+        Dim hoja As Worksheet
+        Dim libro As Workbook
+        Dim fila As Integer
+        fila = 5
+        archivo = archivo + Mid(ini.ToString, 5, 2) + "_" + Mid(fin.ToString, 5, 2) + ".xlsx"
+        Try
+            If File.Exists(archivo) Then
+                My.Computer.FileSystem.DeleteFile(archivo)
+            End If
+        Catch ex As Exception
+            MsgBox("Archivo se encuentra abierto: " + archivo)
+            Exit Sub
+        End Try
+        libro = New Workbook
+        hoja = libro.Worksheets(0)
+        ' Encabezado y nombre del reporte
+        hoja.Range("A1").Text = "INDUSTRIAL AZUCARERA SAN CRISTOBAL S.A. DE C.V."
+        hoja.Range("A2").Text = "ACUMULADO PAGOS EXTRAORDINARIOS " + ini.ToString + " A " + fin.ToString
+        hoja.Range("A1").Style.Font.Size = 16
+        hoja.Range("A2").Style.Font.Size = 12
+        hoja.Range("A1:A2").Style.Font.FontName = "Calibri"
+        hoja.Range("A1:A2").Style.HorizontalAlignment = HorizontalAlignment.Center
+        hoja.Range("A1:A2").Style.Font.IsBold = True
+        hoja.Range("A1:G1").Merge()
+        hoja.Range("A2:G2").Merge()
+        ' Titulos de columnas
+        With hoja.Range("A4:G4")
+            .Style.Color = Color.DarkSeaGreen
+            .Style.Font.IsBold = True
+            .Style.HorizontalAlignment = HorizontalAlignment.Center
+        End With
+        hoja.Range("A4").Text = "SEMANA"
+        hoja.Range("B4").Text = "NUMTRA"
+        hoja.Range("C4").Text = "NOMBRE"
+        hoja.Range("D4").Text = "TIPO"
+        hoja.Range("E4").Text = "CPTO"
+        hoja.Range("F4").Text = "DESCRIP"
+        hoja.Range("G4").Text = "IMPORTE"
+        ' Filas
+        a.qr("select k2_semana,k2_numtra,nombre,k2_tipo,g4_cpto,g4_nombre,case when k2_cpto<400 then k2_importe else k2_importe*-1 end " +
+            " from anom502,nombres,anom104" +
+            " where k2_semana between " + ini.ToString + " and " + fin.ToString +
+            " and k2_tponom<5" +
+            " and k2_cpto=g4_cpto" +
+            " and tponom=k2_tponom" +
+            " and k2_numtra=numtra" +
+            " order by k2_semana,k2_tipo,k2_numtra,k2_cpto", 1)
+        If Not a.rs.HasRows Then
+            MsgBox("Consulta incorrecta")
+            Exit Sub
+        End If
+        While a.rs.Read
+            Try
+                hoja.Range(fila, 1).NumberValue = a.rs.Item(0)
+                hoja.Range(fila, 2).NumberValue = a.rs.Item(1)
+                hoja.Range(fila, 3).Text = a.rs.Item(2)
+                hoja.Range(fila, 4).Text = a.rs.Item(3)
+                hoja.Range(fila, 5).NumberValue = a.rs.Item(4)
+                hoja.Range(fila, 6).Text = a.rs.Item(5)
+                hoja.Range(fila, 7).NumberValue = a.rs.Item(6)
+                fila += 1
+            Catch ex As Exception
+                MsgBox(a.rs.Item(0))
+                MsgBox(a.rs.Item(1))
+                MsgBox(a.rs.Item(2))
+                MsgBox(a.rs.Item(3))
+                MsgBox(a.rs.Item(4))
+                MsgBox(a.rs.Item(5))
+                MsgBox(a.rs.Item(6))
+                Exit Sub
+            End Try
+        End While
+        fila -= 1
+        hoja.Range("A4:G" + fila.ToString).BorderAround(LineStyleType.Medium, Color.Black)
+        hoja.Range("A4:G" + fila.ToString).BorderInside(LineStyleType.Thin, Color.Black)
+        fila += 2
+        hoja.Range(fila, 7).Formula = "=+SUM(G6:G" + (fila - 2).ToString + ")"
+        hoja.Range("G5:G" + fila.ToString).NumberFormat = "#,##0.00"
+        hoja.AllocatedRange.AutoFitColumns()
+        libro.SaveToFile(archivo, ExcelVersion.Version2010)
+        hoja = Nothing
+        libro = Nothing
+        MsgBox("Reporte realizado: " + archivo)
+    End Sub
 End Class

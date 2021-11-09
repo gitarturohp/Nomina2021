@@ -55,10 +55,11 @@ Partial Class PorFuera
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RevisionTimbradoEncabezadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RevisionTimbradoDetalleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenPorPersonaYConceptoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ofd_leer_timbrado = New System.Windows.Forms.OpenFileDialog()
         Me.prb_estado = New System.Windows.Forms.ProgressBar()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ResumenPorPersonaYConceptoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcumuladoPorTrabajadorConceptoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgr_conceptos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -286,7 +287,7 @@ Partial Class PorFuera
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RevisionTimbradoEncabezadoToolStripMenuItem, Me.RevisionTimbradoDetalleToolStripMenuItem, Me.ResumenPorPersonaYConceptoToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RevisionTimbradoEncabezadoToolStripMenuItem, Me.RevisionTimbradoDetalleToolStripMenuItem, Me.ResumenPorPersonaYConceptoToolStripMenuItem, Me.AcumuladoPorTrabajadorConceptoToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -294,14 +295,20 @@ Partial Class PorFuera
         'RevisionTimbradoEncabezadoToolStripMenuItem
         '
         Me.RevisionTimbradoEncabezadoToolStripMenuItem.Name = "RevisionTimbradoEncabezadoToolStripMenuItem"
-        Me.RevisionTimbradoEncabezadoToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.RevisionTimbradoEncabezadoToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.RevisionTimbradoEncabezadoToolStripMenuItem.Text = "Revision timbrado encabezado"
         '
         'RevisionTimbradoDetalleToolStripMenuItem
         '
         Me.RevisionTimbradoDetalleToolStripMenuItem.Name = "RevisionTimbradoDetalleToolStripMenuItem"
-        Me.RevisionTimbradoDetalleToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.RevisionTimbradoDetalleToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.RevisionTimbradoDetalleToolStripMenuItem.Text = "Revision timbrado detalle"
+        '
+        'ResumenPorPersonaYConceptoToolStripMenuItem
+        '
+        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Name = "ResumenPorPersonaYConceptoToolStripMenuItem"
+        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
+        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Text = "Resumen por persona y concepto"
         '
         'ofd_leer_timbrado
         '
@@ -324,11 +331,11 @@ Partial Class PorFuera
         Me.PictureBox1.TabIndex = 38
         Me.PictureBox1.TabStop = False
         '
-        'ResumenPorPersonaYConceptoToolStripMenuItem
+        'AcumuladoPorTrabajadorConceptoToolStripMenuItem
         '
-        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Name = "ResumenPorPersonaYConceptoToolStripMenuItem"
-        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
-        Me.ResumenPorPersonaYConceptoToolStripMenuItem.Text = "Resumen por persona y concepto"
+        Me.AcumuladoPorTrabajadorConceptoToolStripMenuItem.Name = "AcumuladoPorTrabajadorConceptoToolStripMenuItem"
+        Me.AcumuladoPorTrabajadorConceptoToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
+        Me.AcumuladoPorTrabajadorConceptoToolStripMenuItem.Text = "Acumulado por trabajador, concepto"
         '
         'PorFuera
         '
@@ -396,4 +403,5 @@ Partial Class PorFuera
     Friend WithEvents Timbrado201733ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CargarPensionesDispersionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ResumenPorPersonaYConceptoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AcumuladoPorTrabajadorConceptoToolStripMenuItem As ToolStripMenuItem
 End Class
