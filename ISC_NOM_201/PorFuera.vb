@@ -2308,4 +2308,134 @@ Public Class PorFuera
         libro = Nothing
         MsgBox("Reporte realizado: " + archivo)
     End Sub
+
+    Private Sub bot_elim_buscar_Click(sender As Object, e As EventArgs) Handles bot_elim_buscar.Click
+        Dim cant = 1
+        Dim semana = txt_eli_semana.Text
+        Dim importe = 0.00
+        Dim query = "select k2_tponom,k2_numtra,k2_tipo,k2_cpto,K2_SEMANA,k2_importe from anom502"
+        dgv_eliminar.Rows.Clear()
+        txt_eli_importe.Text = 0.00
+        If Not Val(txt_eli_semana.Text) > 0 Then
+            MsgBox("Campo semana necesario")
+            Exit Sub
+        End If
+        a.qr("select * from anom201 where h1_semana=" + semana.ToString, 1)
+        If Not a.rs.HasRows Then
+            MsgBox("Semana incorrecta, campo necesario")
+            Exit Sub
+        Else
+            query += " where k2_semana=" + semana.ToString
+        End If
+        If Val(txt_eli_numtra.Text) > 0 Then
+            query += " and k2_numtra=" + txt_eli_numtra.Text.ToString
+        End If
+        If cmb_eli_tponom.SelectedIndex > -1 Then
+            query += " and k2_tponom=" + Mid(cmb_eli_tponom.Text, 1, 1)
+        End If
+        If Len(txt_eli_letra.Text) Then
+            query += " and k2_tipo='" + txt_eli_letra.Text + "'"
+        End If
+        query += " order by k2_semana,k2_numtra,k2_cpto"
+        a.qr(query, 1)
+        If a.rs.HasRows Then
+            While a.rs.Read
+                dgv_eliminar.Rows.Add(a.rs.Item(0), a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4), a.rs.Item(5))
+                cant += 1
+                If cant = 100 Then
+                    MsgBox("Demasiados registros, reducir consulta")
+                    Exit While
+                End If
+            End While
+            cant = 0
+            While cant < dgv_eliminar.Rows.Count
+                If dgv_eliminar.Rows(cant).Cells(3).Value > 400 Then
+                    importe = importe - dgv_eliminar.Rows(cant).Cells(5).Value
+                Else
+                    importe = importe + dgv_eliminar.Rows(cant).Cells(5).Value
+                End If
+                cant = cant + 1
+            End While
+            txt_eli_importe.Text = importe
+        Else
+            MsgBox("Sin registros")
+        End If
+
+    End Sub
+
+    Private Sub bot_elim_borrar_Click(sender As Object, e As EventArgs) Handles bot_elim_borrar.Click
+        Dim query = "select * from anom502 "
+        Dim qdelete = "delete from anom502"
+        Dim semana = txt_eli_semana.Text
+        If InputBox("Clave de acceso") = "864209" Then
+            If Not Val(txt_eli_semana.Text) > 0 Then
+                MsgBox("Campo semana necesario")
+                Exit Sub
+            End If
+            a.qr("select * from anom201 where h1_semana=" + semana.ToString, 1)
+            If Not a.rs.HasRows Then
+                MsgBox("Semana incorrecta, campo necesario")
+                Exit Sub
+            Else
+                query += " where k2_semana=" + semana.ToString
+                qdelete += " where k2_semana=" + semana.ToString
+            End If
+            If Val(txt_eli_numtra.Text) > 0 Then
+                query += " and k2_numtra=" + txt_eli_numtra.Text.ToString
+                qdelete += " and k2_numtra=" + txt_eli_numtra.Text.ToString
+
+            End If
+            If cmb_eli_tponom.SelectedIndex > -1 Then
+                query += " and k2_tponom=" + Mid(cmb_eli_tponom.Text, 1, 1)
+                qdelete += " and k2_tponom=" + Mid(cmb_eli_tponom.Text, 1, 1)
+            End If
+            If Len(txt_eli_letra.Text) Then
+                query += " and k2_tipo='" + txt_eli_letra.Text + "'"
+                qdelete += " and k2_tipo='" + txt_eli_letra.Text + "'"
+
+            End If
+            a.qr(query, 1)
+            If a.rs.HasRows Then
+                MsgBox(qdelete + " " + Chr(13) + txt_eli_importe.Text.ToString)
+            End If
+        End If
+    End Sub
+
+    Private Sub bot_elim_ajuste_Click(sender As Object, e As EventArgs) Handles bot_elim_ajuste.Click
+        Dim query = "select * from anom502 "
+        Dim qajuste = "insert into ajustesconcil select k2_semana,k2_tponom,k2_numtra,k2_cpto,k2_importe*-1 from anom502"
+        Dim semana = txt_eli_semana.Text
+        If InputBox("Clave de acceso") = "864209" Then
+            If Not Val(txt_eli_semana.Text) > 0 Then
+                MsgBox("Campo semana necesario")
+                Exit Sub
+            End If
+            a.qr("select * from anom201 where h1_semana=" + semana.ToString, 1)
+            If Not a.rs.HasRows Then
+                MsgBox("Semana incorrecta, campo necesario")
+                Exit Sub
+            Else
+                query += " where k2_semana=" + semana.ToString
+                qajuste += " where k2_semana=" + semana.ToString
+            End If
+            If Val(txt_eli_numtra.Text) > 0 Then
+                query += " and k2_numtra=" + txt_eli_numtra.Text.ToString
+                qajuste += " and k2_numtra=" + txt_eli_numtra.Text.ToString
+
+            End If
+            If cmb_eli_tponom.SelectedIndex > -1 Then
+                query += " and k2_tponom=" + Mid(cmb_eli_tponom.Text, 1, 1)
+                qajuste += " and k2_tponom=" + Mid(cmb_eli_tponom.Text, 1, 1)
+            End If
+            If Len(txt_eli_letra.Text) Then
+                query += " and k2_tipo='" + txt_eli_letra.Text + "'"
+                qajuste += " and k2_tipo='" + txt_eli_letra.Text + "'"
+
+            End If
+            a.qr(query, 1)
+            If a.rs.HasRows Then
+                MsgBox(qajuste + " " + Chr(13) + txt_eli_importe.Text.ToString)
+            End If
+        End If
+    End Sub
 End Class

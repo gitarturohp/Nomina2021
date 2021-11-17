@@ -229,3 +229,4 @@ E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.exe
 E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.xml
 E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.pdb
 E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.AssemblyReference.cache
+E:\Herrera\programas\NomSat_VS2019\ISC_NOM_201\obj\x86\Debug\ISC_NOM_201.vbproj.CopyComplete
