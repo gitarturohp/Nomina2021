@@ -105,6 +105,7 @@ Partial Class procesos
         Me.DispersionNominasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeEventualesCorporativoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BecariosSemanalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ISRSubsidioTimbradoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.fbd_carpeta = New System.Windows.Forms.FolderBrowserDialog()
         Me.ofd_leer_timbrado = New System.Windows.Forms.OpenFileDialog()
         Me.sfd_archivo = New System.Windows.Forms.SaveFileDialog()
@@ -193,7 +194,6 @@ Partial Class procesos
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lbl_sem_activa = New System.Windows.Forms.Label()
         Me.dias_trabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ISRSubsidioTimbradoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.men_principal.SuspendLayout()
         Me.bar_estado.SuspendLayout()
         Me.tab_extras.SuspendLayout()
@@ -413,13 +413,13 @@ Partial Class procesos
         'CalculoToolStripMenuItem1
         '
         Me.CalculoToolStripMenuItem1.Name = "CalculoToolStripMenuItem1"
-        Me.CalculoToolStripMenuItem1.Size = New System.Drawing.Size(142, 22)
+        Me.CalculoToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.CalculoToolStripMenuItem1.Text = "Leer nom416"
         '
         'CalculoToolStripMenuItem2
         '
         Me.CalculoToolStripMenuItem2.Name = "CalculoToolStripMenuItem2"
-        Me.CalculoToolStripMenuItem2.Size = New System.Drawing.Size(142, 22)
+        Me.CalculoToolStripMenuItem2.Size = New System.Drawing.Size(180, 22)
         Me.CalculoToolStripMenuItem2.Text = "Calculo"
         '
         'ActualizarSalariosIMSSToolStripMenuItem
@@ -638,6 +638,12 @@ Partial Class procesos
         Me.BecariosSemanalToolStripMenuItem.Name = "BecariosSemanalToolStripMenuItem"
         Me.BecariosSemanalToolStripMenuItem.Size = New System.Drawing.Size(260, 22)
         Me.BecariosSemanalToolStripMenuItem.Text = "Resumen anom503"
+        '
+        'ISRSubsidioTimbradoToolStripMenuItem
+        '
+        Me.ISRSubsidioTimbradoToolStripMenuItem.Name = "ISRSubsidioTimbradoToolStripMenuItem"
+        Me.ISRSubsidioTimbradoToolStripMenuItem.Size = New System.Drawing.Size(260, 22)
+        Me.ISRSubsidioTimbradoToolStripMenuItem.Text = "ISR, Subsidio timbrado"
         '
         'ofd_leer_timbrado
         '
@@ -1476,12 +1482,6 @@ Partial Class procesos
         'dias_trabBindingSource
         '
         Me.dias_trabBindingSource.DataMember = "dias_trab"
-        '
-        'ISRSubsidioTimbradoToolStripMenuItem
-        '
-        Me.ISRSubsidioTimbradoToolStripMenuItem.Name = "ISRSubsidioTimbradoToolStripMenuItem"
-        Me.ISRSubsidioTimbradoToolStripMenuItem.Size = New System.Drawing.Size(260, 22)
-        Me.ISRSubsidioTimbradoToolStripMenuItem.Text = "ISR, Subsidio timbrado"
         '
         'procesos
         '

@@ -3956,4 +3956,42 @@ Public Class procesos
         MsgBox("ISR: " + isr.ToString + Chr(13) +
                "SUBSIDIO: " + subs.ToString)
     End Sub
+
+    Private Sub CalculoPensionPrestacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalculoPensionPrestacionToolStripMenuItem.Click
+        Dim ar As StreamReader
+        Dim lin() As String
+        Dim semana = 0
+        Dim cant = 0
+        Dim query = ""
+        Dim tpotra = "1"
+        Dim fecha = ""
+        a.qr("truncate table anom503", 2)
+        If ofd_leer_timbrado.ShowDialog = Windows.Forms.DialogResult.OK Then
+            semana = Val(lbl_sem_activa.Text)
+            a.qr("select * from anom201 where h1_semana=" + semana.ToString, 1)
+            If a.rs.HasRows Then
+                a.rs.Read()
+                fecha = Mid(a.rs!h1_fecha_fin.ToString, 1, 10)
+            Else
+                MsgBox("Semana no existe")
+                Exit Sub
+            End If
+            ar = New StreamReader(ofd_leer_timbrado.FileName)
+            While ar.Peek >= 0
+                lin = Split(ar.ReadLine, Chr(9))
+                If Val(lin(0)) > 0 Then
+                    a.qr("insert into anom503 values (" + lin(0).ToString +
+                                "," + lin(1).ToString +
+                                "," + lin(2).ToString +
+                                ",0,0," + lin(3).ToString + ")", 2)
+                    cant += 1
+                End If
+            End While
+            ar.Close()
+        End If
+        a.qr("exec calc_isrpen_recre", 2)
+        a.qr("delete from anom502 where k2_tponom=11 and k2_semana=" + semana.ToString, 2)
+        a.qr("exec cargar_pension 11", 2)
+        MsgBox("Proceso terminado con " + cant.ToString + " registros, pension cargada con tipo 11.")
+    End Sub
 End Class

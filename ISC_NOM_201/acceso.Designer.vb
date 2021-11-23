@@ -121,7 +121,7 @@ Partial Class acceso
         Me.lbl_version.Name = "lbl_version"
         Me.lbl_version.Size = New System.Drawing.Size(50, 13)
         Me.lbl_version.TabIndex = 8
-        Me.lbl_version.Text = "Ver. 2.09"
+        Me.lbl_version.Text = "Ver. 2.10"
         '
         'acceso
         '
