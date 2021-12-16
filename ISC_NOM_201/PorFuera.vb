@@ -62,6 +62,7 @@ Public Class PorFuera
             dgr_conceptos.Rows.Add(a.rs!k2_tponom.ToString, a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4))
             cont = cont + 1
         End While
+        cont = cont - 1
         While cont >= 0
             If dgr_conceptos.Rows(cont).Cells(2).Value < 400 Then
                 txt_neto_pagar.Text = txt_neto_pagar.Text + dgr_conceptos.Rows(cont).Cells(4).Value
@@ -258,14 +259,6 @@ Public Class PorFuera
         End If
         dgr_conceptos.Rows.Clear()
     End Sub
-
-    Private Sub bot_borrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bot_borrar.Click
-        If MsgBox("Eliminar carga?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            a.qr("delete from anom502 where k2_estado=1", 2)
-        End If
-        bot_reporte.PerformClick()
-    End Sub
-
     Private Sub bot_procesados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bot_procesados.Click
         Dim cont = 0
         Dim sem = 0
@@ -278,12 +271,12 @@ Public Class PorFuera
         End While
         txt_neto_pagar.Text = "0.00"
         dgr_conceptos.Rows.Clear()
-        a.qr("select k2_tponom,k2_tipo,0,count(distinct k2_numtra) cont,sum(case when k2_cpto<400 then k2_importe else k2_importe*-1 end) importe " + _
-            " from anom502, anom104" + _
-            " where k2_estado = 2" + _
-            " and k2_semana=" + sem.ToString + _
-            " and k2_cpto=g4_cpto " + _
-            " group by k2_tponom,k2_tipo " + _
+        a.qr("select k2_tponom,k2_tipo,0,count(distinct k2_numtra) cont,sum(case when k2_cpto<400 then k2_importe else k2_importe*-1 end) importe " +
+            " from anom502, anom104" +
+            " where k2_estado = 2" +
+            " and k2_semana=" + sem.ToString +
+            " and k2_cpto=g4_cpto " +
+            " group by k2_tponom,k2_tipo " +
             " order by 1,2", 1)
         While a.rs.Read
             dgr_conceptos.Rows.Add(a.rs!k2_tponom.ToString, a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4))

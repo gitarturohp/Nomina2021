@@ -296,18 +296,20 @@ Public Class Asistencia
             objReader = New StreamReader(archivo)
             Do
                 sLine = objReader.ReadLine()
-                If cont > 0 Then
+                If cont > 0 And Len(sLine) > 0 Then
                     linea = Split(sLine, ",")
-                    'MsgBox(linea(2).ToString + " - " + linea(4).ToString + " - " + linea(5).ToString)
-                    a.qr("insert into incapacidades values (" + linea(2).ToString + ",'" +
-                         linea(4).ToString + "'," +
-                         linea(5).ToString + ",'" +
-                         linea(9).ToString + "'," +
-                         linea(11).ToString + ")", 2)
-                    cont += 1
-                Else
-                    cont += 1
+                    a.qr("select * from incapacidades where numtra=" + linea(2) + " and fecha='" + linea(4) + "' and dias=" + linea(5), 1)
+                    If a.rs.HasRows Then
+                        a.qr("update incapacidades set rama='" + linea(9) + "' " + "where numtra=" + linea(2) + " and fecha='" + linea(4) + "' and dias=" + linea(5), 2)
+                    Else
+                        a.qr("insert into incapacidades values (" + linea(2).ToString + ",'" +
+                             linea(4).ToString + "'," +
+                             linea(5).ToString + ",'" +
+                             linea(9).ToString + "'," +
+                             linea(11).ToString + ")", 2)
+                    End If
                 End If
+                cont += 1
             Loop Until sLine Is Nothing
             objReader.Close()
         End If

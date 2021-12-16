@@ -108,7 +108,7 @@ Module Encriptar
         Dim email As New MailMessage()
         Dim archivoAdjunto As System.Net.Mail.Attachment
         email.IsBodyHtml = False
-        email.From = New MailAddress("notificacion.iasc@zucarmex.com")
+        email.From = New MailAddress("notificacionsc@zucarmex.com")
         email.To.Add(correo)
         archivoAdjunto = New System.Net.Mail.Attachment(archivo + "xml")
         email.Attachments.Add(archivoAdjunto)

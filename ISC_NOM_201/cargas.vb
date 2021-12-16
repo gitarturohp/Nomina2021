@@ -330,7 +330,7 @@ Public Class cargas
             End If
         End While
         While True
-            wtponom = InputBox("Tipo de Pension : (5) Sindicalizado  (6) Confianza  (7) Jub Quincenal (8) Jub Mensual (9) Premio  (10) Despensa  (11) Aguinaldo  (12) Fondo Obr  (13) Fondo Emp")
+            wtponom = InputBox("Tipo de Pension : (5)-Sindicalizado  (6)-Confianza  (7)-Jub Quincenal (8)-Jub Mensual (9)-Premio  (10)-Despensa  (11)-Aguinaldo obrero  (12)-Fondo Obr  (13)-Fondo Emp  (14)-Aguinaldo empleado")
             If Len(wtponom) = 0 Then
                 Exit Sub
             End If
@@ -1004,7 +1004,7 @@ Public Class cargas
         End While
 
         While True
-            wtponom = InputBox("Tipo de Pension : (5) Sindicalizado  (6) Confianza  (7) Jub Quincenal (8) Jub Mensual (9) Premio  (10) Despensa  (11) Aguinaldo  (12) Fondo Obr  (13) Fondo Emp")
+            wtponom = InputBox("Tipo de Pension : (5) Sindicalizado  (6) Confianza  (7) Jub Quincenal (8) Jub Mensual (9) Premio  (10) Despensa  (11) Aguinaldo Obrero (12) Fondo Obr  (13) Fondo Emp  (14) Aguinaldo Empleado")
             If Len(wtponom) = 0 Then
                 Exit Sub
             End If
