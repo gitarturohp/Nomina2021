@@ -3313,6 +3313,7 @@ Public Class procesos
         Dim dra As IO.FileInfo
         Dim cont = 0
         Dim numtra = 0
+        Dim tipo = ""
         Dim archivo = ""
         Dim texto = "Industrial Azucarera San Cristobal S.A. de C.V." + Chr(13) + Chr(13)
         texto = texto + "Con el fin de dar cumplimiento a lo establecido en los artículos 29, fracción V del CFF y 99, fracción III de la Ley del ISR, a través del presente correo le hacemos llegar su CFDI (xml y representación impresa en pdf) correspondientes al período:"
@@ -3330,37 +3331,71 @@ Public Class procesos
                 Exit While
             End If
         End While
+        tipo = UCase(InputBox("Tipo de pago (N,A,P,...)"))
         numtra = Val(InputBox("Reenvio, numero de trabajador:"))
         If numtra > 0 Then
-            a.qr("update bitacora_recibos set enviado=0 where semana=" + semana.ToString + " and numtra=" + numtra.ToString, 2)
+            a.qr("update bitacora_recibos set enviado=0 where semana=" + semana.ToString + " and numtra=" + numtra.ToString + " and tipo='" + tipo + "'", 2)
         End If
-        a.qr("insert into bitacora_recibos" +
-            " select distinct j1_numtra,null," + semana + ",0 from anom401" +
-            " where j1_semana = " + semana.ToString +
-            " and j1_cpto<400" +
-            " and j1_cpto>0" +
-            " and j1_tponom=2" +
-            " and j1_numtra not in (select numtra from bitacora_recibos where semana=" + semana + ")", 2)
-        If Directory.Exists(ruta + "empleados\" + semana.ToString) Then
-            di = New IO.DirectoryInfo(ruta + "empleados\" + semana.ToString)
-            diar1 = di.GetFiles("*.pdf")
-            For Each dra In diar1
-                numtra = Val(Mid(dra.ToString, 25, 5))
-                archivo = Mid(dra.ToString, 1, Len(dra.ToString) - 3)
-                a.qr("select enviado from bitacora_recibos where numtra=" + numtra.ToString + " and semana=" + semana, 1)
-                If a.rs.HasRows Then
-                    a.rs.Read()
-                    If numtra > 0 And a.rs!enviado <> 1 Then
-                        a.qr("select descrip from catalogos where familia=21 and tipo=" + numtra.ToString, 1)
-                        If a.rs.HasRows Then
-                            a.rs.Read()
-                            correorecibo(a.rs!descrip, ruta + "empleados\" + semana.ToString + "\" + archivo, texto + Chr(13) + Chr(13), semana)
+        If tipo = "N" Then
+            a.qr("insert into bitacora_recibos" +
+                " select distinct j1_numtra,null," + semana + ",0,2,'" + tipo + "' from anom401" +
+                " where j1_semana = " + semana.ToString +
+                " and j1_cpto<400" +
+                " and j1_cpto>0" +
+                " and j1_tponom=2" +
+                " and j1_numtra not in (select numtra from bitacora_recibos where semana=" + semana + ")", 2)
+        Else
+            a.qr("select * from bitacora_recibos where semana=" + semana.ToString + " and tipo='" + tipo + "'", 1)
+            If Not a.rs.HasRows Then
+                a.qr("insert into bitacora_recibos" +
+                    " select distinct k2_numtra,null,k2_semana,0,2,k2_tipo from anom502" +
+                    " where k2_semana=" + semana.ToString +
+                    " and k2_tponom=2" +
+                    " and k2_tipo='" + tipo + "'", 2)
+            End If
+        End If
+        If tipo = "N" Then
+            If Directory.Exists(ruta + "empleados\" + semana.ToString) Then
+                di = New IO.DirectoryInfo(ruta + "empleados\" + semana.ToString)
+                diar1 = di.GetFiles("*.pdf")
+                For Each dra In diar1
+                    numtra = Val(Mid(dra.ToString, 25, 5))
+                    archivo = Mid(dra.ToString, 1, Len(dra.ToString) - 3)
+                    a.qr("select enviado from bitacora_recibos where numtra=" + numtra.ToString + " and semana=" + semana, 1)
+                    If a.rs.HasRows Then
+                        a.rs.Read()
+                        If numtra > 0 And a.rs!enviado <> 1 Then
+                            a.qr("select descrip from catalogos where familia=21 and tipo=" + numtra.ToString, 1)
+                            If a.rs.HasRows Then
+                                a.rs.Read()
+                                correorecibo(a.rs!descrip, ruta + "empleados\" + semana.ToString + "\" + archivo, texto + Chr(13) + Chr(13), semana, "nomina")
+                            End If
                         End If
                     End If
-                End If
-            Next
+                Next
+            End If
+        Else
+            If Directory.Exists(ruta + "empleados\" + semana.ToString + "\" + tipo) Then
+                di = New IO.DirectoryInfo(ruta + "empleados\" + semana.ToString + "\" + tipo)
+                diar1 = di.GetFiles("*.pdf")
+                For Each dra In diar1
+                    numtra = Val(Mid(dra.ToString, 25, 5))
+                    archivo = Mid(dra.ToString, 1, Len(dra.ToString) - 3)
+                    a.qr("select enviado from bitacora_recibos where numtra=" + numtra.ToString + " and semana=" + semana + " and tipo='" + tipo + "'", 1)
+                    If a.rs.HasRows Then
+                        a.rs.Read()
+                        If numtra > 0 And a.rs!enviado <> 1 Then
+                            a.qr("select descrip from catalogos where familia=21 and tipo=" + numtra.ToString, 1)
+                            If a.rs.HasRows Then
+                                a.rs.Read()
+                                correorecibo(a.rs!descrip, ruta + "empleados\" + semana.ToString + "\" + tipo + "\" + archivo, texto + Chr(13) + Chr(13), semana, "aguinaldo")
+                            End If
+                        End If
+                    End If
+                Next
+            End If
         End If
-        MsgBox("Proceso de envio de recibos de nomina terminado")
+        MsgBox("Proceso de envio de recibos terminado")
     End Sub
 
     Private Sub Nom310PremioToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nom310PremioToolStripMenuItem.Click

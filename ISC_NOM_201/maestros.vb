@@ -512,13 +512,16 @@ Public Class maestros
         Dim tponom = 0
         Dim numtra = 0
         Dim bene = 0
+        Dim conse = 0
         tponom = dgv_pensiones.Rows(dgv_pensiones.CurrentCellAddress.Y).Cells(0).Value
         numtra = dgv_pensiones.Rows(dgv_pensiones.CurrentCellAddress.Y).Cells(1).Value
         bene = dgv_pensiones.Rows(dgv_pensiones.CurrentCellAddress.Y).Cells(4).Value
+        conse = dgv_pensiones.Rows(dgv_pensiones.CurrentCellAddress.Y).Cells(3).Value
         a.qr("select * from anom106,vacre102,nombres" +
             " where g6_tponom = " + tponom.ToString +
             " and g6_numtra=" + numtra.ToString +
             " and g6_clave=" + bene.ToString +
+            " and g6_conse=" + conse.ToString +
             " and v_relab=11" +
             " and tponom=g6_tponom" +
             " and numtra=g6_numtra" +
@@ -561,10 +564,11 @@ Public Class maestros
                 " and v_relab=11", 1)
             a.rs.Read()
             If MsgBox("Eliminar pension: " + a.rs!v_nombreprop.ToString + ", " + a.rs!g6_porc.ToString, MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                MsgBox("delete from anom106" +
+                a.qr("delete from anom106" +
                 " where g6_tponom = " + Mid(cmb_pen_tponom.Text, 1, 1) +
                 " and g6_numtra=" + mtb_pen_numtra.Text +
-                " and g6_clave=" + mtb_bene.Text, 2)
+                " and g6_clave=" + mtb_bene.Text +
+                " and g6_conse=" + cmb_conse.Text, 2)
                 MsgBox("Borrado con exito")
                 borra106()
             End If

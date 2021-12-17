@@ -103,7 +103,7 @@ Module Encriptar
         End Try
         Return True
     End Function
-    Function correorecibo(ByVal correo As String, ByVal archivo As String, ByVal semana As String, ByVal sem As String)
+    Function correorecibo(ByVal correo As String, ByVal archivo As String, ByVal semana As String, ByVal sem As String, ByVal concepto As String)
         Dim a As New Clase
         Dim email As New MailMessage()
         Dim archivoAdjunto As System.Net.Mail.Attachment
@@ -116,7 +116,7 @@ Module Encriptar
         email.Attachments.Add(archivoAdjunto)
         email.IsBodyHtml = True
         email.Body = semana
-        email.Subject = "Recibo de nomina " + sem.ToString
+        email.Subject = "Recibo de " + concepto + " " + sem.ToString
         email.Priority = MailPriority.Normal
         Dim smtp As New SmtpClient
         With smtp
@@ -128,7 +128,11 @@ Module Encriptar
         End With
         Try
             smtp.Send(email)
-            a.qr("update bitacora_recibos set enviado=1,fecha=getdate() where semana=" + sem.ToString + " and numtra=(select tipo from catalogos where familia=21 and descrip='" + correo + "')", 2)
+            If UCase(Mid(concepto, 1, 1)) = "N" Then
+                a.qr("update bitacora_recibos set enviado=1,fecha=getdate() where tipo='N' and semana=" + sem.ToString + " and numtra=(select tipo from catalogos where familia=21 and descrip='" + correo + "')", 2)
+            Else
+                a.qr("update bitacora_recibos set enviado=1,fecha=getdate() where tipo<>'N' and semana=" + sem.ToString + " and numtra=(select tipo from catalogos where familia=21 and descrip='" + correo + "')", 2)
+            End If
         Catch ex As Exception
             MsgBox("ERROR: " + correo + " " & ex.Message, MsgBoxStyle.OkOnly, "Revisar correo destinatario")
             a.qr("update bitacora_recibos set enviado=2 where semana=" + sem.ToString + " and numtra=(select tipo from catalogos where familia=21 and descrip='" + correo + "')", 2)
