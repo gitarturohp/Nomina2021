@@ -579,15 +579,25 @@ Public Class maestros
 
     Private Sub Nom105ListadoTrabajadoresToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nom105ListadoTrabajadoresToolStripMenuItem.Click
         Dim file As System.IO.FileStream
-        Dim fic As String = "c:\temp\anom205.csv"
+        Dim fic As String = ""
         Dim sw As System.IO.StreamWriter
+        Dim tponom = 1
 
+        While True
+            tponom = Val(InputBox("Tipo de nomina"))
+            If tponom = 0 Then
+                Exit Sub
+            End If
+            If tponom > 0 And tponom < 3 Then
+                Exit While
+            End If
+        End While
+        fic = "c:\temp\anom205_" + tponom.ToString + ".csv"
         file = System.IO.File.Create(fic)
         file.Close()
-
         sw = New System.IO.StreamWriter(fic)
         sw.WriteLine("TPONOM,NUMTRA,NOMBRE,CURP,RFC,NSS,PLAZA,REGIMEN,GRUIMSS,CLINICA,INGRESO,TEMPORAL,PERMANENTE,DPTOZ,DPTOR,CATZ,CATR,ESCALAFON")
-        a.qr("REP_ANOM105 1", 1)
+        a.qr("REP_ANOM105 " + tponom.ToString, 1)
         While a.rs.Read
             sw.WriteLine(a.rs.Item(0).ToString + "," +
                          a.rs.Item(1).ToString + "," +

@@ -282,6 +282,7 @@ Public Class PorFuera
             dgr_conceptos.Rows.Add(a.rs!k2_tponom.ToString, a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4))
             cont = cont + 1
         End While
+        cont = cont - 1
         While cont >= 0
             If dgr_conceptos.Rows(cont).Cells(2).Value < 400 Then
                 txt_neto_pagar.Text = txt_neto_pagar.Text + dgr_conceptos.Rows(cont).Cells(4).Value
@@ -1620,8 +1621,9 @@ Public Class PorFuera
                                         'sw.WriteLine("ImporteSubsidio" + Chr(wchar) + "0.00")
                                     Else
                                         'sw.WriteLine("ImporteSubsidio" + Chr(wchar) + (b.rs!t3_importe * -1 - a.rs!t1_ispt).ToString)
-                                        sw.WriteLine("ImporteOtroPago" + Chr(wchar) + (b.rs!t3_importe * -1).ToString)
+                                        'sw.WriteLine("ImporteOtroPago" + Chr(wchar) + (b.rs!t3_importe * -1).ToString)
                                     End If
+                                    sw.WriteLine("ImporteOtroPago" + Chr(wchar) + Math.Round(b.rs!g14_saldo, 2).ToString)
                                     sw.WriteLine("SaldoAFavor" + Chr(wchar) + Math.Round(b.rs!g14_saldo, 2).ToString)
                                     sw.WriteLine("Anio" + Chr(wchar) + "2020")
                                     sw.WriteLine("RemanenteSalFav|" + Math.Round(b.rs!g14_saldo + b.rs!t3_importe, 2).ToString)

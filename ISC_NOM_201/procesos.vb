@@ -2648,7 +2648,7 @@ Public Class procesos
                     a.qr("update anom402 set j2_premio='1' where j2_semana=(select i4_ano_sem from anom304)", 2)
                 End If
             End If
-            'a.qr("unir_premio_zafra 202022", 2)
+            a.qr("unir_premio_zafra 202121", 2)
             a.qr("premio '" + mes + "'", 2)
             MsgBox("Proceso terminado")
         Else
