@@ -1025,6 +1025,7 @@ Public Class maestros
 
     Private Sub MantenimientoABaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MantenimientoABaseDeDatosToolStripMenuItem.Click
         a.qr("backup log san_cristobal with truncate_only DBCC SHRINKDATABASE (san_cristobal , TRUNCATEONLY) ", 2)
+        a.qr("update parametros set valor=convert(char(10),getdate(),103) where tipo=1 and clave='logs'", 2)
         MsgBox("Proceso realizado", MsgBoxStyle.Exclamation)
     End Sub
 End Class

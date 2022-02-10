@@ -1509,8 +1509,12 @@ Public Class procesos
         Dim total = 0
         Dim wimpo As Decimal
         Dim wdes As Decimal
+        Dim ano = ""
         Dim wsem = ""
         Dim mes = ""
+        a.qr("select valor from parametros where tipo=1 and clave='anoprem'", 1)
+        a.rs.Read()
+        ano = a.rs!valor
         While True
             mes = InputBox("Numero de mes a calcular (1-12)")
             If Len(mes) = 0 Then
@@ -1518,9 +1522,9 @@ Public Class procesos
             End If
             If Val(mes) > 0 And Val(mes) < 13 Then
                 If Val(mes) < 10 Then
-                    mes = "01/0" + mes + "/2021"
+                    mes = "01/0" + mes + "/" + ano
                 Else
-                    mes = "01/" + mes + "/2021"
+                    mes = "01/" + mes + "/" + ano
                 End If
                 Exit While
             End If
@@ -2620,6 +2624,11 @@ Public Class procesos
 
     Private Sub CargaDeAsistenciaToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CargaDeAsistenciaToolStripMenuItem1.Click
         Dim mes = ""
+        Dim ano = ""
+        Dim unir = 0
+        a.qr("select valor from parametros where tipo=1 and clave='anoprem'", 1)
+        a.rs.Read()
+        ano = a.rs!valor
         While True
             mes = InputBox("Numero de mes a calcular (1-12)")
             If Len(mes) = 0 Then
@@ -2627,9 +2636,9 @@ Public Class procesos
             End If
             If Val(mes) > 0 And Val(mes) < 13 Then
                 If Val(mes) < 10 Then
-                    mes = "01/0" + mes + "/2021"
+                    mes = "01/0" + mes + "/" + ano
                 Else
-                    mes = "01/" + mes + "/2021"
+                    mes = "01/" + mes + "/" + ano
                 End If
                 Exit While
             End If
@@ -2648,7 +2657,14 @@ Public Class procesos
                     a.qr("update anom402 set j2_premio='1' where j2_semana=(select i4_ano_sem from anom304)", 2)
                 End If
             End If
-            a.qr("unir_premio_zafra 202121", 2)
+            While True
+                unir = Val(InputBox("Unir premio de zafra anterior, primer premio de la zafra, teclear semana:"))
+                If unir = 0 Then
+                    Exit While
+                Else
+                    a.qr("unir_premio_zafra " + unir.ToString, 2)
+                End If
+            End While
             a.qr("premio '" + mes + "'", 2)
             MsgBox("Proceso terminado")
         Else

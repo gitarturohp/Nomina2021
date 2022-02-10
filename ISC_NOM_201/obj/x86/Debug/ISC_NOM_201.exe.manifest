@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ISC_NOM_201.exe" size="2115584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ISC_NOM_201.exe" size="2116096">
       <assemblyIdentity name="ISC_NOM_201" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kPVe/RgoOvQqaYVoqMxjOR8eIvvS7gHftZSBT0SBs60=</dsig:DigestValue>
+        <dsig:DigestValue>E6HWjRMjPQYRWGHGn51jSJukaxfZisnciFdrUbmFrvg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

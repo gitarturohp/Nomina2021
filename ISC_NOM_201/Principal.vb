@@ -16,7 +16,6 @@ Public Class Principal
             End If
         End If
     End Sub
-
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         a.qr("select g1_timbrado from anom101", 1)
         a.rs.Read()

@@ -231,12 +231,13 @@ Partial Class maestros
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MantenimientoABaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.Nom105ListadoTrabajadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Nom102CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MantenimientoABaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeCorreosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tab_catalogos.SuspendLayout()
         Me.tab_fisica.SuspendLayout()
         CType(Me.dgv_fisicas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2172,9 +2173,15 @@ Partial Class maestros
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(237, 6)
         '
+        'MantenimientoABaseDeDatosToolStripMenuItem
+        '
+        Me.MantenimientoABaseDeDatosToolStripMenuItem.Name = "MantenimientoABaseDeDatosToolStripMenuItem"
+        Me.MantenimientoABaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MantenimientoABaseDeDatosToolStripMenuItem.Text = "Mantenimiento a Base de datos"
+        '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator5, Me.ToolStripSeparator4, Me.Nom105ListadoTrabajadoresToolStripMenuItem, Me.Nom102CategoriasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator5, Me.ToolStripSeparator4, Me.Nom105ListadoTrabajadoresToolStripMenuItem, Me.Nom102CategoriasToolStripMenuItem, Me.ReporteDeCorreosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -2201,11 +2208,11 @@ Partial Class maestros
         Me.Nom102CategoriasToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.Nom102CategoriasToolStripMenuItem.Text = "Nom102 Categorias"
         '
-        'MantenimientoABaseDeDatosToolStripMenuItem
+        'ReporteDeCorreosToolStripMenuItem
         '
-        Me.MantenimientoABaseDeDatosToolStripMenuItem.Name = "MantenimientoABaseDeDatosToolStripMenuItem"
-        Me.MantenimientoABaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
-        Me.MantenimientoABaseDeDatosToolStripMenuItem.Text = "Mantenimiento a Base de datos"
+        Me.ReporteDeCorreosToolStripMenuItem.Name = "ReporteDeCorreosToolStripMenuItem"
+        Me.ReporteDeCorreosToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.ReporteDeCorreosToolStripMenuItem.Text = "Reporte de correos"
         '
         'maestros
         '
@@ -2452,4 +2459,5 @@ Partial Class maestros
     Friend WithEvents txt_cat_nombre As TextBox
     Friend WithEvents txt_cat_catego As TextBox
     Friend WithEvents MantenimientoABaseDeDatosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeCorreosToolStripMenuItem As ToolStripMenuItem
 End Class
