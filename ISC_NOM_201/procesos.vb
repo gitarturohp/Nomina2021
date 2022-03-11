@@ -573,47 +573,47 @@ Public Class procesos
                     Else
                         sw.WriteLine("TotNeto" + Chr(wchar) + (a.rs!t1_neto - a.rs!t1_subsidio + a.rs!israfavor - a.rs!ajustesub).ToString)
                     End If
-                    sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt + a.rs!adeudo).ToString)
+                    sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
                     sw.WriteLine("TotCargDesc" + Chr(wchar) + a.rs!t1_descto.ToString)
                     If a.rs!t1_ispt >= 0 And a.rs!t1_subsidio > 0 Then
                         w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor - a.rs!adeudo + 0.0 + a.rs!ajustesub
                         sw.WriteLine("Importe" + Chr(wchar) + w_imppago.ToString)
                     Else
-                        w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor - a.rs!adeudo - a.rs!ajustesub
+                        w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor - a.rs!ajustesub
                         sw.WriteLine("Importe" + Chr(wchar) + w_imppago.ToString)
                     End If
                     sw.WriteLine("TipImpR" + Chr(wchar) + "ISR")
-                    sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt + +a.rs!adeudo).ToString)
+                    sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
                     sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(w_imppago).ToString)
                 Else
                     If a.rs!t1_subsidio = 0 Then
                         sw.WriteLine("PrecMX" + Chr(wchar) + a.rs!t1_neto.ToString)
                         sw.WriteLine("TotNeto" + Chr(wchar) + (a.rs!t1_neto + a.rs!israfavor + a.rs!ajustesub).ToString)
-                        sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt + a.rs!adeudo).ToString)
+                        sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
                         sw.WriteLine("TotCargDesc" + Chr(wchar) + a.rs!t1_descto.ToString)
-                        sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - a.rs!t1_ispt - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                        sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - a.rs!t1_ispt - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                         sw.WriteLine("TipImpR" + Chr(wchar) + "ISR")
-                        sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt + +a.rs!adeudo).ToString)
-                        sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - a.rs!t1_ispt - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                        sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
+                        sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - a.rs!t1_ispt - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                     Else
                         If a.rs!azucar > 0 Then
                             sw.WriteLine("PrecMX" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) + a.rs!t1_ispt - a.rs!azucar).ToString)
                             sw.WriteLine("TotNeto" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) + a.rs!israfavor + a.rs!ajustesub).ToString)
-                            sw.WriteLine("TotImpR" + Chr(wchar) + a.rs!adeudo.ToString)
+                            sw.WriteLine("TotImpR" + Chr(wchar) + "0.00")
                             sw.WriteLine("TotCargDesc" + Chr(wchar) + (a.rs!t1_descto).ToString)
-                            sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                            sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                             sw.WriteLine("TipImpR" + Chr(wchar) + "ISR")
-                            sw.WriteLine("MonImpR" + Chr(wchar) + a.rs!adeudo.ToString)
-                            sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                            sw.WriteLine("MonImpR" + Chr(wchar) + "0.00")
+                            sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                         Else
                             sw.WriteLine("PrecMX" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) + a.rs!t1_ispt + a.rs!azucar).ToString)
                             sw.WriteLine("TotNeto" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) + a.rs!israfavor + a.rs!ajustesub).ToString)
-                            sw.WriteLine("TotImpR" + Chr(wchar) + a.rs!adeudo.ToString)
+                            sw.WriteLine("TotImpR" + Chr(wchar) + "0.00")
                             sw.WriteLine("TotCargDesc" + Chr(wchar) + (a.rs!t1_descto).ToString)
-                            sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                            sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                             sw.WriteLine("TipImpR" + Chr(wchar) + "ISR")
-                            sw.WriteLine("MonImpR" + Chr(wchar) + a.rs!adeudo.ToString)
-                            sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub - a.rs!adeudo).ToString)
+                            sw.WriteLine("MonImpR" + Chr(wchar) + "0.00")
+                            sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - (a.rs!t1_subsidio + a.rs!t1_ispt) - a.rs!t1_descto + a.rs!israfavor + a.rs!ajustesub).ToString)
                         End If
 
                     End If
@@ -759,9 +759,9 @@ Public Class procesos
                             If w_ded = 1 Then
                                 sw.WriteLine("Deduccion" + Chr(wchar) + w_ded.ToString)
                                 If a.rs!t1_ispt < 0 Then
-                                    sw.WriteLine("TotalExento" + Chr(wchar) + (a.rs!t1_descto + a.rs!adeudo).ToString)
+                                    sw.WriteLine("TotalExento" + Chr(wchar) + (a.rs!t1_descto).ToString)
                                 Else
-                                    sw.WriteLine("TotalExento" + Chr(wchar) + (a.rs!t1_ispt + a.rs!t1_descto + a.rs!adeudo).ToString)
+                                    sw.WriteLine("TotalExento" + Chr(wchar) + (a.rs!t1_ispt + a.rs!t1_descto).ToString)
                                 End If
                                 sw.WriteLine("TotalGravado" + Chr(wchar) + "0.00")
                                 sw.WriteLine("TipoDeduccion" + Chr(wchar) + a.ceros(b.rs!t3_seres))

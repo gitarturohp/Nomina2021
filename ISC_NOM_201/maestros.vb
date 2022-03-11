@@ -1028,4 +1028,24 @@ Public Class maestros
         a.qr("update parametros set valor=convert(char(10),getdate(),103) where tipo=1 and clave='logs'", 2)
         MsgBox("Proceso realizado", MsgBoxStyle.Exclamation)
     End Sub
+
+    Private Sub ReporteDeCorreosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeCorreosToolStripMenuItem.Click
+        Dim file As System.IO.FileStream
+        Dim fic As String = "c:\temp\correos_empleados.txt"
+        file = System.IO.File.Create(fic)
+        file.Close()
+        Dim sw As New System.IO.StreamWriter(fic)
+        a.qr("select tipo,nombre,descrip,rfc from catalogos,nombres where familia=21 and tipo=numtra and tponom=2 order by 2", 1)
+        sw.WriteLine("NUMTRA" + Chr(9) +
+                     "NOMBRE" + Chr(9) +
+                     "CORREO" + Chr(9) +
+                     "RFC" + Chr(9))
+        If a.rs.HasRows Then
+            While a.rs.Read
+                sw.WriteLine(a.rs.Item(0).ToString + Chr(9) + a.rs.Item(1) + Chr(9) + a.rs.Item(2) + Chr(9) + a.rs.Item(3))
+            End While
+        End If
+        Process.Start(fic)
+        sw.Close()
+    End Sub
 End Class
