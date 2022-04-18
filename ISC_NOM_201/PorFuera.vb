@@ -1135,11 +1135,11 @@ Public Class PorFuera
                 If a.rs!t1_subsidio = 0 Then
                     sw.WriteLine("PrecMX" + Chr(wchar) + (a.rs!t1_neto - a.rs!viaticos).ToString)
                     sw.WriteLine("TotNeto" + Chr(wchar) + (a.rs!t1_neto + a.rs!israfavor).ToString)
-                    sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt + a.rs!adeudo).ToString)
-                    sw.WriteLine("TotCargDesc" + Chr(wchar) + (a.rs!t1_descto - a.rs!adeudo).ToString)
+                    sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
+                    sw.WriteLine("TotCargDesc" + Chr(wchar) + (a.rs!t1_descto).ToString)
                     sw.WriteLine("Importe" + Chr(wchar) + (a.rs!t1_neto - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor).ToString)
                     sw.WriteLine("TipImpR" + Chr(wchar) + "ISR")
-                    sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt + a.rs!adeudo).ToString)
+                    sw.WriteLine("MonImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
                     sw.WriteLine("ImpLetra" + Chr(wchar) + a.Num_texto(a.rs!t1_neto - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor).ToString)
                 Else
                     If a.rs!t1_subsidio > a.rs!t1_ispt Then

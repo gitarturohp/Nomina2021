@@ -576,7 +576,7 @@ Public Class procesos
                     sw.WriteLine("TotImpR" + Chr(wchar) + (a.rs!t1_ispt).ToString)
                     sw.WriteLine("TotCargDesc" + Chr(wchar) + a.rs!t1_descto.ToString)
                     If a.rs!t1_ispt >= 0 And a.rs!t1_subsidio > 0 Then
-                        w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor - a.rs!adeudo + 0.0 + a.rs!ajustesub
+                        w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor + 0.0 + a.rs!ajustesub
                         sw.WriteLine("Importe" + Chr(wchar) + w_imppago.ToString)
                     Else
                         w_imppago = a.rs!t1_neto - a.rs!t1_subsidio - a.rs!t1_descto - a.rs!t1_ispt + a.rs!israfavor - a.rs!ajustesub
@@ -2363,7 +2363,7 @@ Public Class procesos
         Else
             If MsgBox("Cargar convenios semana " + txt_semana.Text.ToString + "?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 a.qr("convenio " + txt_semana.Text.ToString + ",10,10", 2) ' DEP=13029, TPOTRA=1, CAT=TODO, CALC= 10 HR X DIA
-                a.qr("convenio " + txt_semana.Text.ToString + ",11,28", 2) ' DEP=13038, TPOTRA=1, CAT=TODO, CALC= 10 HR X DIA
+                'a.qr("convenio " + txt_semana.Text.ToString + ",11,28", 2) 
                 a.qr("convenio " + txt_semana.Text.ToString + ",12,16", 2)
                 a.qr("convenio " + txt_semana.Text.ToString + ",13,0", 2)
                 a.qr("convenio " + txt_semana.Text.ToString + ",14,16", 2)
@@ -4046,11 +4046,11 @@ Public Class procesos
             ar.Close()
         End If
         If tponom > 0 Then
-            a.qr("select * from anom503 where k3_tponom=" + tponom.ToString + " and k3_cpto in (66,166)", 1)
+            a.qr("select * from anom503 where k3_tponom=" + tponom.ToString, 1)
             If a.rs.HasRows And tponom = 1 Then
                 tpopen = 11
             End If
-            a.qr("select * from anom503 where k3_tponom=" + tponom.ToString + " and k3_cpto in (66,166)", 1)
+            a.qr("select * from anom503 where k3_tponom=" + tponom.ToString, 1)
             If a.rs.HasRows And tponom = 2 Then
                 tpopen = 14
             End If
@@ -4106,5 +4106,158 @@ Public Class procesos
         End While
         a.qr("cargar_503 '" + letra + "',2,11", 2)
         MsgBox("Proceso terminado")
+    End Sub
+
+    Private Sub Correccion4192021ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Correccion4192021ToolStripMenuItem.Click
+        If InputBox("Clave") <> "1526" Then
+            Exit Sub
+        End If
+        Dim arc1 As String = ""
+        Dim arc2 As String = ""
+        Dim file As FileStream
+        Dim cad(2)
+        Dim num = 0
+        Dim linea = 1
+        If ofd_leer_timbrado.ShowDialog = DialogResult.OK Then
+            arc1 = ofd_leer_timbrado.FileName
+        End If
+        arc2 = "c:\temp\cpto419\nuevo\" + Mid(arc1, InStr(arc1, "2021"), 6) + ".txt"
+        'MsgBox(arc2)
+        ' LECTURA DE ARCHIVO PARA CONOCER LA LINEA DE LOS CONCEPTOS A CAMBIAR
+        Dim obj1 As New StreamReader(arc1)
+        Dim slin1 As String
+        Dim bandera = 0
+        a.qr("truncate table cpto419", 2)
+        Do
+            slin1 = obj1.ReadLine()
+            'a.qr("insert into txt values (" + linea.ToString + ",'" + RTrim(slin1) + "')", 2)
+            If InStr(slin1, "CFD|698") Then
+                num += 1
+            End If
+            If InStr(slin1, "TotImpR|") > 0 Then
+                cad = Split(slin1, "|")
+                a.qr("insert into cpto419 values (" + num.ToString + "," + linea.ToString + ",1,0," + cad(1).ToString + ")", 2)
+            End If
+            If InStr(slin1, "TotCargDesc|") > 0 Then
+                cad = Split(slin1, "|")
+                a.qr("insert into cpto419 values (" + num.ToString + "," + linea.ToString + ",2,0," + cad(1).ToString + ")", 2)
+            End If
+            If InStr(slin1, "MonImpR|") > 0 Then
+                cad = Split(slin1, "|")
+                a.qr("insert into cpto419 values (" + num.ToString + "," + linea.ToString + ",3,0," + cad(1).ToString + ")", 2)
+            End If
+            If InStr(slin1, "NumEmpleado|") > 0 Then
+                cad = Split(slin1, "|")
+                a.qr("insert into cpto419 values (" + num.ToString + "," + linea.ToString + ",0," + cad(1).ToString + ",0)", 2)
+            End If
+            If InStr(slin1, "Clave|419") > 0 Then
+                a.qr("insert into cpto419 values (" + num.ToString + "," + (linea - 1).ToString + ",5,0,0)", 2)
+                bandera = 1
+            End If
+            If InStr(slin1, "ImporteExento|") > 0 And bandera = 1 Then
+                bandera = 0
+                cad = Split(slin1, "|")
+                a.qr("insert into cpto419 values (" + num.ToString + "," + linea.ToString + ",4,0," + cad(1).ToString + ")", 2)
+            End If
+            linea += 1
+        Loop Until slin1 Is Nothing
+        obj1.Close()
+        Dim b As New Clase
+        'MsgBox("Termina lectura de timbrado original")
+        a.qr("delete from cpto419 where num not in (select num from cpto419 where tipo=4 and importe>0)", 2)
+        a.qr("select num,importe from cpto419 where tipo=4", 1)
+        If a.rs.HasRows Then
+            While a.rs.Read
+                b.qr("update cpto419 set importe=importe-" + a.rs!importe.ToString + " where tipo=1 and num=" + a.rs!num.ToString, 2)
+                b.qr("update cpto419 set importe=importe-" + a.rs!importe.ToString + " where tipo=3 and num=" + a.rs!num.ToString, 2)
+                b.qr("update cpto419 set importe=importe+" + a.rs!importe.ToString + " where tipo=2 and num=" + a.rs!num.ToString, 2)
+            End While
+        End If
+        b = Nothing
+        'MsgBox("Termina de modificacion de importes")
+        ' CAMBIO DE IMPORTES EN ARCHIVO
+        If True Then
+            file = IO.File.Create(arc2)
+            file.Close()
+            Dim sw As New System.IO.StreamWriter(arc2)
+            obj1 = New StreamReader(arc1)
+            Dim tab As ArrayList
+            Dim texto As String = ""
+            a.qr("select linea from cpto419", 1)
+            While a.rs.Read
+                texto = texto + "|" + a.rs!linea.ToString + "|"
+            End While
+            linea = 1
+            Do
+                slin1 = obj1.ReadLine()
+                If InStr(texto, "|" + linea.ToString + "|") > 0 Then
+                    a.qr("select tipo,importe from cpto419 where linea=" + linea.ToString, 1)
+                    If a.rs.HasRows Then
+                        a.rs.Read()
+                        Select Case a.rs!tipo
+                            Case 0
+                                sw.WriteLine(slin1)
+                            Case 1
+                                sw.WriteLine("TotImpR|" + a.rs!importe.ToString)
+                            Case 2
+                                sw.WriteLine("TotCargDesc|" + a.rs!importe.ToString)
+                            Case 3
+                                sw.WriteLine("MonImpR|" + a.rs!importe.ToString)
+                            Case 4
+                                sw.WriteLine(slin1)
+                            Case 5
+                                sw.WriteLine("TipoDeduccion|101")
+                        End Select
+                    End If
+                Else
+                    sw.WriteLine(slin1)
+                End If
+                linea += 1
+            Loop Until slin1 Is Nothing
+            obj1.Close()
+            sw.Close()
+            sw = Nothing
+        End If
+        obj1 = Nothing
+        file = Nothing
+        MsgBox("Proceso realizado")
+    End Sub
+
+    Private Sub RevisionTimbradoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RevisionTimbradoToolStripMenuItem1.Click
+        If InputBox("Clave") <> "1526" Then
+            Exit Sub
+        End If
+        Dim arc1 As String = ""
+        Dim arc2 As String = ""
+        Dim file As FileStream
+        Dim cad(2)
+        If ofd_leer_timbrado.ShowDialog = DialogResult.OK Then
+            arc1 = ofd_leer_timbrado.FileName
+        End If
+        arc2 = "c:\temp\cpto419\numeros.txt"
+        'MsgBox(arc2)
+        ' LECTURA DE ARCHIVO PARA CONOCER LA LINEA DE LOS CONCEPTOS A CAMBIAR
+        Dim obj1 As New StreamReader(arc1)
+        Dim slin1 As String
+        Dim b As New Clase
+        ' CAMBIO DE IMPORTES EN ARCHIVO
+        If True Then
+            file = IO.File.Create(arc2)
+            file.Close()
+            Dim sw As New System.IO.StreamWriter(arc2)
+            obj1 = New StreamReader(arc1)
+            Do
+                slin1 = obj1.ReadLine()
+                If InStr(slin1, "NumEmpleado|") > 0 Then
+                    sw.WriteLine(slin1)
+                End If
+            Loop Until slin1 Is Nothing
+            obj1.Close()
+            sw.Close()
+            sw = Nothing
+        End If
+        obj1 = Nothing
+        file = Nothing
+        MsgBox("Proceso realizado")
     End Sub
 End Class

@@ -77,6 +77,7 @@ Partial Class procesos
         Me.CargaDePercepcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargaDeduccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimbradoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Correccion4192021ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenPorConceptoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RevisionRFCCURPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -197,6 +198,7 @@ Partial Class procesos
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lbl_sem_activa = New System.Windows.Forms.Label()
         Me.dias_trabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.RevisionTimbradoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.men_principal.SuspendLayout()
         Me.bar_estado.SuspendLayout()
         Me.tab_extras.SuspendLayout()
@@ -238,7 +240,7 @@ Partial Class procesos
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargaPremioToolStripMenuItem, Me.CapturaDeAsistenciaToolStripMenuItem, Me.ToolStripSeparator2, Me.CalculoDeDespensaToolStripMenuItem, Me.TimbradoToolStripMenuItem, Me.CalculoDePensionesToolStripMenuItem, Me.CargarValidacionRFCSATToolStripMenuItem, Me.VacacionesToolStripMenuItem, Me.ActualizarSalariosIMSSToolStripMenuItem, Me.CambiarSemanaToolStripMenuItem, Me.JubiladosToolStripMenuItem, Me.BecariosToolStripMenuItem, Me.CalculoPensionPrestacionToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargaPremioToolStripMenuItem, Me.CapturaDeAsistenciaToolStripMenuItem, Me.ToolStripSeparator2, Me.CalculoDeDespensaToolStripMenuItem, Me.TimbradoToolStripMenuItem, Me.CalculoDePensionesToolStripMenuItem, Me.CargarValidacionRFCSATToolStripMenuItem, Me.VacacionesToolStripMenuItem, Me.ActualizarSalariosIMSSToolStripMenuItem, Me.CambiarSemanaToolStripMenuItem, Me.JubiladosToolStripMenuItem, Me.BecariosToolStripMenuItem, Me.CalculoPensionPrestacionToolStripMenuItem, Me.Correccion4192021ToolStripMenuItem, Me.RevisionTimbradoToolStripMenuItem1})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "&Procesos"
@@ -473,6 +475,12 @@ Partial Class procesos
         Me.TimbradoToolStripMenuItem1.Name = "TimbradoToolStripMenuItem1"
         Me.TimbradoToolStripMenuItem1.Size = New System.Drawing.Size(178, 22)
         Me.TimbradoToolStripMenuItem1.Text = "Timbrado"
+        '
+        'Correccion4192021ToolStripMenuItem
+        '
+        Me.Correccion4192021ToolStripMenuItem.Name = "Correccion4192021ToolStripMenuItem"
+        Me.Correccion4192021ToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.Correccion4192021ToolStripMenuItem.Text = "Correccion 419 2021"
         '
         'ReportesToolStripMenuItem
         '
@@ -1505,6 +1513,12 @@ Partial Class procesos
         '
         Me.dias_trabBindingSource.DataMember = "dias_trab"
         '
+        'RevisionTimbradoToolStripMenuItem1
+        '
+        Me.RevisionTimbradoToolStripMenuItem1.Name = "RevisionTimbradoToolStripMenuItem1"
+        Me.RevisionTimbradoToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
+        Me.RevisionTimbradoToolStripMenuItem1.Text = "Revision timbrado"
+        '
         'procesos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1707,4 +1721,6 @@ Partial Class procesos
     Friend WithEvents CargaDePercepcionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargaDeduccionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TimbradoToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents Correccion4192021ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RevisionTimbradoToolStripMenuItem1 As ToolStripMenuItem
 End Class
