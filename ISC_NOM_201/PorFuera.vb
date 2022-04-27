@@ -188,12 +188,12 @@ Public Class PorFuera
                 Exit While
             End If
             Try
-                If Len(lin(0)) > 5 Then
+                If Len(lin(0)) > 6 Then
                     a.qr("select i8_clave from aing108 where i8_relab=11 and i8_clabe='" + lin(0).ToString + "'", 1)
                     a.rs.Read()
-                    a.qr("insert into anom502 values(8," + a.rs!i8_clave.ToString + "," + lin(8).ToString + "," + lin(1).ToString + _
-                         "," + lin(2).ToString + "," + lin(3).ToString + ",'" + Mid(lin(4).ToString, 1, 10) + "','" + _
-                         Mid(lin(5).ToString, 1, 10) + "'," + lin(6).ToString + ",1,'N','" + fecpago + "','" + lin(9).ToString + "'," + sem.ToString + ",'" + _
+                    a.qr("insert into anom502 values(8," + a.rs!i8_clave.ToString + "," + lin(8).ToString + "," + lin(1).ToString +
+                         "," + lin(2).ToString + "," + lin(3).ToString + ",'" + Mid(lin(4).ToString, 1, 10) + "','" +
+                         Mid(lin(5).ToString, 1, 10) + "'," + lin(6).ToString + ",1,'N','" + fecpago + "','" + lin(9).ToString + "'," + sem.ToString + ",'" +
                          Mid(lin(7).ToString, 1, 10) + "')", 2)
                 Else
                     a.qr("insert into anom502 values(8," + lin(0).ToString + "," + lin(8).ToString + "," + lin(1).ToString + _

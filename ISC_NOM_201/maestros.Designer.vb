@@ -798,7 +798,7 @@ Partial Class maestros
         '
         Me.mtb_rel_numtra.BackColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.mtb_rel_numtra.Location = New System.Drawing.Point(151, 86)
-        Me.mtb_rel_numtra.Mask = "99999"
+        Me.mtb_rel_numtra.Mask = "999999"
         Me.mtb_rel_numtra.Name = "mtb_rel_numtra"
         Me.mtb_rel_numtra.Size = New System.Drawing.Size(100, 20)
         Me.mtb_rel_numtra.TabIndex = 3

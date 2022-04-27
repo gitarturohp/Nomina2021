@@ -807,24 +807,24 @@ Public Class procesos
                                         sw.WriteLine("OtroPago" + Chr(wchar) + w_otp.ToString)
                                         If w_otp = 1 Then
                                             sw.WriteLine("TotalOtrosPagos" + Chr(wchar) + Math.Round((a.rs!ajustesub * -1) + a.rs!israfavor + a.rs!azucar, 2).ToString)
-                                            w_otp += 1
                                         End If
                                         sw.WriteLine("TipoOtroPago" + Chr(wchar) + "007")
                                         sw.WriteLine("Clave" + Chr(wchar) + b.rs!t3_cpto.ToString)
                                         sw.WriteLine("Concepto" + Chr(wchar) + b.rs!t3_deduc.ToString)
                                         sw.WriteLine("ImporteOtroPago" + Chr(wchar) + Math.Round(b.rs!t3_importe * -1, 2).ToString)
+                                        w_otp += 1
                                     End If
                                 Case 408
                                     If b.rs!t3_importe < 0 Then
                                         sw.WriteLine("OtroPago" + Chr(wchar) + w_otp.ToString)
                                         If w_otp = 1 Then
                                             sw.WriteLine("TotalOtrosPagos" + Chr(wchar) + Math.Round(b.rs!t3_importe * -1, 2).ToString)
-                                            w_otp += 1
                                         End If
                                         sw.WriteLine("TipoOtroPago" + Chr(wchar) + "008")
                                         sw.WriteLine("Clave" + Chr(wchar) + b.rs!t3_cpto.ToString)
                                         sw.WriteLine("Concepto" + Chr(wchar) + b.rs!t3_deduc.ToString)
                                         sw.WriteLine("ImporteOtroPago" + Chr(wchar) + Math.Round(b.rs!t3_importe * -1, 2).ToString)
+                                        w_otp += 1
                                     End If
                                 Case 411
                                     If ((b.rs!t3_importe * -1) - (ispt)) > 0 Then
@@ -871,8 +871,9 @@ Public Class procesos
                                         sw.WriteLine("Concepto" + Chr(wchar) + b.rs!t3_deduc.ToString)
                                         sw.WriteLine("ImporteOtroPago" + Chr(wchar) + Math.Round(a.rs!israfavor, 2).ToString)
                                         sw.WriteLine("SaldoAFavor" + Chr(wchar) + Math.Round(b.rs!g14_saldo - b.rs!t3_importe, 2).ToString)
-                                        sw.WriteLine("Anio" + Chr(wchar) + "2020")
+                                        sw.WriteLine("Anio" + Chr(wchar) + "2021")
                                         sw.WriteLine("RemanenteSalFav|" + Math.Round(b.rs!g14_saldo, 2).ToString)
+                                        w_otp = w_otp + 1
                                     End If
                             End Select
                     End Select
@@ -2821,6 +2822,8 @@ Public Class procesos
                     a.qr("exec aplic_comite " + sem.ToString, 2)
                     a.qr("exec cargar_pension 1", 2)
                     a.qr("exec act_ultim_fec_catego", 2)
+                    a.qr("backup log san_cristobal with truncate_only DBCC SHRINKDATABASE (san_cristobal , TRUNCATEONLY) ", 2)
+                    a.qr("update parametros set valor=convert(char(10),getdate(),103) where tipo=1 and clave='logs'", 2)
                     MsgBox("Proceso realizado")
                     correo("El proceso de nomina fue concluido.", "Nomina correcta semana " + sem.ToString)
                 End If
