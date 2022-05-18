@@ -3378,7 +3378,8 @@ Public Class procesos
                 di = New IO.DirectoryInfo(ruta + "empleados\" + semana.ToString)
                 diar1 = di.GetFiles("*.pdf")
                 For Each dra In diar1
-                    numtra = Val(Mid(dra.ToString, 25, 5))
+                    numtra = Val(Mid(dra.ToString, 14, 5))
+                    'MsgBox(numtra)
                     archivo = Mid(dra.ToString, 1, Len(dra.ToString) - 3)
                     a.qr("select enviado from bitacora_recibos where numtra=" + numtra.ToString + " and semana=" + semana, 1)
                     If a.rs.HasRows Then
