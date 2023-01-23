@@ -30,6 +30,7 @@ Partial Class Asistencia
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargaAsistenciaDeRelojToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDeAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CargarIncapacidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalariosIMSSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,31 +57,31 @@ Partial Class Asistencia
         Me.lbl_nomnumtra = New System.Windows.Forms.Label()
         Me.lbl_numtra = New System.Windows.Forms.Label()
         Me.bot_guardar = New System.Windows.Forms.Button()
-        Me.lbl_semana = New System.Windows.Forms.Label()
-        Me.CargarIncapacidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tab_incapacidad = New System.Windows.Forms.TabPage()
-        Me.dgv_incapacidades = New System.Windows.Forms.DataGridView()
-        Me.txt_inc_numtra = New System.Windows.Forms.TextBox()
-        Me.lbl_inc_numtra = New System.Windows.Forms.Label()
-        Me.lbl_inc_rama = New System.Windows.Forms.Label()
-        Me.cmb_inc_rama = New System.Windows.Forms.ComboBox()
-        Me.cmb_inc_estado = New System.Windows.Forms.ComboBox()
-        Me.lbl_inc_estado = New System.Windows.Forms.Label()
-        Me.bot_mostrar = New System.Windows.Forms.Button()
-        Me.txt_inc_fecha = New System.Windows.Forms.TextBox()
-        Me.lbl_inc_fecha = New System.Windows.Forms.Label()
-        Me.txt_inc_dias = New System.Windows.Forms.TextBox()
-        Me.lbl_inc_dias = New System.Windows.Forms.Label()
-        Me.bot_inc_guardar = New System.Windows.Forms.Button()
-        Me.bot_inc_eliminar = New System.Windows.Forms.Button()
         Me.txt_inc_catego = New System.Windows.Forms.TextBox()
         Me.lbl = New System.Windows.Forms.Label()
+        Me.bot_inc_eliminar = New System.Windows.Forms.Button()
+        Me.bot_inc_guardar = New System.Windows.Forms.Button()
+        Me.txt_inc_dias = New System.Windows.Forms.TextBox()
+        Me.lbl_inc_dias = New System.Windows.Forms.Label()
+        Me.txt_inc_fecha = New System.Windows.Forms.TextBox()
+        Me.lbl_inc_fecha = New System.Windows.Forms.Label()
+        Me.bot_mostrar = New System.Windows.Forms.Button()
+        Me.cmb_inc_estado = New System.Windows.Forms.ComboBox()
+        Me.lbl_inc_estado = New System.Windows.Forms.Label()
+        Me.cmb_inc_rama = New System.Windows.Forms.ComboBox()
+        Me.lbl_inc_rama = New System.Windows.Forms.Label()
+        Me.txt_inc_numtra = New System.Windows.Forms.TextBox()
+        Me.lbl_inc_numtra = New System.Windows.Forms.Label()
+        Me.dgv_incapacidades = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.catego = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lbl_semana = New System.Windows.Forms.Label()
+        Me.EnrolamientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -120,7 +121,7 @@ Partial Class Asistencia
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargaAsistenciaDeRelojToolStripMenuItem, Me.CapturaDeAsistenciaToolStripMenuItem, Me.CargarIncapacidadesToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargaAsistenciaDeRelojToolStripMenuItem, Me.CapturaDeAsistenciaToolStripMenuItem, Me.CargarIncapacidadesToolStripMenuItem, Me.EnrolamientoToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -136,6 +137,12 @@ Partial Class Asistencia
         Me.CapturaDeAsistenciaToolStripMenuItem.Name = "CapturaDeAsistenciaToolStripMenuItem"
         Me.CapturaDeAsistenciaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.CapturaDeAsistenciaToolStripMenuItem.Text = "Enviar asistencia a nomina"
+        '
+        'CargarIncapacidadesToolStripMenuItem
+        '
+        Me.CargarIncapacidadesToolStripMenuItem.Name = "CargarIncapacidadesToolStripMenuItem"
+        Me.CargarIncapacidadesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CargarIncapacidadesToolStripMenuItem.Text = "Cargar incapacidades"
         '
         'ReportesToolStripMenuItem
         '
@@ -365,22 +372,6 @@ Partial Class Asistencia
         Me.bot_guardar.Text = "Guardar"
         Me.bot_guardar.UseVisualStyleBackColor = True
         '
-        'lbl_semana
-        '
-        Me.lbl_semana.AutoSize = True
-        Me.lbl_semana.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_semana.Location = New System.Drawing.Point(29, 54)
-        Me.lbl_semana.Name = "lbl_semana"
-        Me.lbl_semana.Size = New System.Drawing.Size(110, 31)
-        Me.lbl_semana.TabIndex = 9
-        Me.lbl_semana.Text = "999999"
-        '
-        'CargarIncapacidadesToolStripMenuItem
-        '
-        Me.CargarIncapacidadesToolStripMenuItem.Name = "CargarIncapacidadesToolStripMenuItem"
-        Me.CargarIncapacidadesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.CargarIncapacidadesToolStripMenuItem.Text = "Cargar incapacidades"
-        '
         'tab_incapacidad
         '
         Me.tab_incapacidad.Controls.Add(Me.txt_inc_catego)
@@ -406,52 +397,83 @@ Partial Class Asistencia
         Me.tab_incapacidad.Text = "Incapacidades"
         Me.tab_incapacidad.UseVisualStyleBackColor = True
         '
-        'dgv_incapacidades
+        'txt_inc_catego
         '
-        Me.dgv_incapacidades.AllowUserToAddRows = False
-        Me.dgv_incapacidades.AllowUserToDeleteRows = False
-        Me.dgv_incapacidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_incapacidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.catego})
-        Me.dgv_incapacidades.Location = New System.Drawing.Point(29, 152)
-        Me.dgv_incapacidades.Name = "dgv_incapacidades"
-        Me.dgv_incapacidades.Size = New System.Drawing.Size(475, 250)
-        Me.dgv_incapacidades.TabIndex = 7
+        Me.txt_inc_catego.BackColor = System.Drawing.Color.White
+        Me.txt_inc_catego.Location = New System.Drawing.Point(189, 101)
+        Me.txt_inc_catego.Name = "txt_inc_catego"
+        Me.txt_inc_catego.Size = New System.Drawing.Size(62, 20)
+        Me.txt_inc_catego.TabIndex = 37
         '
-        'txt_inc_numtra
+        'lbl
         '
-        Me.txt_inc_numtra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txt_inc_numtra.Location = New System.Drawing.Point(73, 30)
-        Me.txt_inc_numtra.Name = "txt_inc_numtra"
-        Me.txt_inc_numtra.Size = New System.Drawing.Size(56, 20)
-        Me.txt_inc_numtra.TabIndex = 24
+        Me.lbl.AutoSize = True
+        Me.lbl.Location = New System.Drawing.Point(140, 102)
+        Me.lbl.Name = "lbl"
+        Me.lbl.Size = New System.Drawing.Size(41, 13)
+        Me.lbl.TabIndex = 36
+        Me.lbl.Text = "Catego"
         '
-        'lbl_inc_numtra
+        'bot_inc_eliminar
         '
-        Me.lbl_inc_numtra.AutoSize = True
-        Me.lbl_inc_numtra.Location = New System.Drawing.Point(26, 30)
-        Me.lbl_inc_numtra.Name = "lbl_inc_numtra"
-        Me.lbl_inc_numtra.Size = New System.Drawing.Size(41, 13)
-        Me.lbl_inc_numtra.TabIndex = 23
-        Me.lbl_inc_numtra.Text = "Numtra"
+        Me.bot_inc_eliminar.Location = New System.Drawing.Point(429, 63)
+        Me.bot_inc_eliminar.Name = "bot_inc_eliminar"
+        Me.bot_inc_eliminar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_inc_eliminar.TabIndex = 35
+        Me.bot_inc_eliminar.Text = "Eliminar"
+        Me.bot_inc_eliminar.UseVisualStyleBackColor = True
         '
-        'lbl_inc_rama
+        'bot_inc_guardar
         '
-        Me.lbl_inc_rama.AutoSize = True
-        Me.lbl_inc_rama.Location = New System.Drawing.Point(143, 30)
-        Me.lbl_inc_rama.Name = "lbl_inc_rama"
-        Me.lbl_inc_rama.Size = New System.Drawing.Size(35, 13)
-        Me.lbl_inc_rama.TabIndex = 25
-        Me.lbl_inc_rama.Text = "Rama"
+        Me.bot_inc_guardar.Location = New System.Drawing.Point(429, 30)
+        Me.bot_inc_guardar.Name = "bot_inc_guardar"
+        Me.bot_inc_guardar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_inc_guardar.TabIndex = 34
+        Me.bot_inc_guardar.Text = "Guardar"
+        Me.bot_inc_guardar.UseVisualStyleBackColor = True
         '
-        'cmb_inc_rama
+        'txt_inc_dias
         '
-        Me.cmb_inc_rama.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmb_inc_rama.FormattingEnabled = True
-        Me.cmb_inc_rama.Items.AddRange(New Object() {"AT", "EG"})
-        Me.cmb_inc_rama.Location = New System.Drawing.Point(189, 30)
-        Me.cmb_inc_rama.Name = "cmb_inc_rama"
-        Me.cmb_inc_rama.Size = New System.Drawing.Size(62, 21)
-        Me.cmb_inc_rama.TabIndex = 26
+        Me.txt_inc_dias.BackColor = System.Drawing.Color.White
+        Me.txt_inc_dias.Location = New System.Drawing.Point(73, 100)
+        Me.txt_inc_dias.Name = "txt_inc_dias"
+        Me.txt_inc_dias.Size = New System.Drawing.Size(56, 20)
+        Me.txt_inc_dias.TabIndex = 33
+        '
+        'lbl_inc_dias
+        '
+        Me.lbl_inc_dias.AutoSize = True
+        Me.lbl_inc_dias.Location = New System.Drawing.Point(27, 101)
+        Me.lbl_inc_dias.Name = "lbl_inc_dias"
+        Me.lbl_inc_dias.Size = New System.Drawing.Size(28, 13)
+        Me.lbl_inc_dias.TabIndex = 32
+        Me.lbl_inc_dias.Text = "Dias"
+        '
+        'txt_inc_fecha
+        '
+        Me.txt_inc_fecha.BackColor = System.Drawing.Color.White
+        Me.txt_inc_fecha.Location = New System.Drawing.Point(73, 65)
+        Me.txt_inc_fecha.Name = "txt_inc_fecha"
+        Me.txt_inc_fecha.Size = New System.Drawing.Size(56, 20)
+        Me.txt_inc_fecha.TabIndex = 31
+        '
+        'lbl_inc_fecha
+        '
+        Me.lbl_inc_fecha.AutoSize = True
+        Me.lbl_inc_fecha.Location = New System.Drawing.Point(26, 66)
+        Me.lbl_inc_fecha.Name = "lbl_inc_fecha"
+        Me.lbl_inc_fecha.Size = New System.Drawing.Size(37, 13)
+        Me.lbl_inc_fecha.TabIndex = 30
+        Me.lbl_inc_fecha.Text = "Fecha"
+        '
+        'bot_mostrar
+        '
+        Me.bot_mostrar.Location = New System.Drawing.Point(429, 96)
+        Me.bot_mostrar.Name = "bot_mostrar"
+        Me.bot_mostrar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_mostrar.TabIndex = 29
+        Me.bot_mostrar.Text = "Mostrar"
+        Me.bot_mostrar.UseVisualStyleBackColor = True
         '
         'cmb_inc_estado
         '
@@ -472,83 +494,52 @@ Partial Class Asistencia
         Me.lbl_inc_estado.TabIndex = 27
         Me.lbl_inc_estado.Text = "Estado"
         '
-        'bot_mostrar
+        'cmb_inc_rama
         '
-        Me.bot_mostrar.Location = New System.Drawing.Point(429, 96)
-        Me.bot_mostrar.Name = "bot_mostrar"
-        Me.bot_mostrar.Size = New System.Drawing.Size(75, 23)
-        Me.bot_mostrar.TabIndex = 29
-        Me.bot_mostrar.Text = "Mostrar"
-        Me.bot_mostrar.UseVisualStyleBackColor = True
+        Me.cmb_inc_rama.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmb_inc_rama.FormattingEnabled = True
+        Me.cmb_inc_rama.Items.AddRange(New Object() {"AT", "EG"})
+        Me.cmb_inc_rama.Location = New System.Drawing.Point(189, 30)
+        Me.cmb_inc_rama.Name = "cmb_inc_rama"
+        Me.cmb_inc_rama.Size = New System.Drawing.Size(62, 21)
+        Me.cmb_inc_rama.TabIndex = 26
         '
-        'txt_inc_fecha
+        'lbl_inc_rama
         '
-        Me.txt_inc_fecha.BackColor = System.Drawing.Color.White
-        Me.txt_inc_fecha.Location = New System.Drawing.Point(73, 65)
-        Me.txt_inc_fecha.Name = "txt_inc_fecha"
-        Me.txt_inc_fecha.Size = New System.Drawing.Size(56, 20)
-        Me.txt_inc_fecha.TabIndex = 31
+        Me.lbl_inc_rama.AutoSize = True
+        Me.lbl_inc_rama.Location = New System.Drawing.Point(143, 30)
+        Me.lbl_inc_rama.Name = "lbl_inc_rama"
+        Me.lbl_inc_rama.Size = New System.Drawing.Size(35, 13)
+        Me.lbl_inc_rama.TabIndex = 25
+        Me.lbl_inc_rama.Text = "Rama"
         '
-        'lbl_inc_fecha
+        'txt_inc_numtra
         '
-        Me.lbl_inc_fecha.AutoSize = True
-        Me.lbl_inc_fecha.Location = New System.Drawing.Point(26, 66)
-        Me.lbl_inc_fecha.Name = "lbl_inc_fecha"
-        Me.lbl_inc_fecha.Size = New System.Drawing.Size(37, 13)
-        Me.lbl_inc_fecha.TabIndex = 30
-        Me.lbl_inc_fecha.Text = "Fecha"
+        Me.txt_inc_numtra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txt_inc_numtra.Location = New System.Drawing.Point(73, 30)
+        Me.txt_inc_numtra.Name = "txt_inc_numtra"
+        Me.txt_inc_numtra.Size = New System.Drawing.Size(56, 20)
+        Me.txt_inc_numtra.TabIndex = 24
         '
-        'txt_inc_dias
+        'lbl_inc_numtra
         '
-        Me.txt_inc_dias.BackColor = System.Drawing.Color.White
-        Me.txt_inc_dias.Location = New System.Drawing.Point(73, 100)
-        Me.txt_inc_dias.Name = "txt_inc_dias"
-        Me.txt_inc_dias.Size = New System.Drawing.Size(56, 20)
-        Me.txt_inc_dias.TabIndex = 33
+        Me.lbl_inc_numtra.AutoSize = True
+        Me.lbl_inc_numtra.Location = New System.Drawing.Point(26, 30)
+        Me.lbl_inc_numtra.Name = "lbl_inc_numtra"
+        Me.lbl_inc_numtra.Size = New System.Drawing.Size(41, 13)
+        Me.lbl_inc_numtra.TabIndex = 23
+        Me.lbl_inc_numtra.Text = "Numtra"
         '
-        'lbl_inc_dias
+        'dgv_incapacidades
         '
-        Me.lbl_inc_dias.AutoSize = True
-        Me.lbl_inc_dias.Location = New System.Drawing.Point(27, 101)
-        Me.lbl_inc_dias.Name = "lbl_inc_dias"
-        Me.lbl_inc_dias.Size = New System.Drawing.Size(28, 13)
-        Me.lbl_inc_dias.TabIndex = 32
-        Me.lbl_inc_dias.Text = "Dias"
-        '
-        'bot_inc_guardar
-        '
-        Me.bot_inc_guardar.Location = New System.Drawing.Point(429, 30)
-        Me.bot_inc_guardar.Name = "bot_inc_guardar"
-        Me.bot_inc_guardar.Size = New System.Drawing.Size(75, 23)
-        Me.bot_inc_guardar.TabIndex = 34
-        Me.bot_inc_guardar.Text = "Guardar"
-        Me.bot_inc_guardar.UseVisualStyleBackColor = True
-        '
-        'bot_inc_eliminar
-        '
-        Me.bot_inc_eliminar.Location = New System.Drawing.Point(429, 63)
-        Me.bot_inc_eliminar.Name = "bot_inc_eliminar"
-        Me.bot_inc_eliminar.Size = New System.Drawing.Size(75, 23)
-        Me.bot_inc_eliminar.TabIndex = 35
-        Me.bot_inc_eliminar.Text = "Eliminar"
-        Me.bot_inc_eliminar.UseVisualStyleBackColor = True
-        '
-        'txt_inc_catego
-        '
-        Me.txt_inc_catego.BackColor = System.Drawing.Color.White
-        Me.txt_inc_catego.Location = New System.Drawing.Point(189, 101)
-        Me.txt_inc_catego.Name = "txt_inc_catego"
-        Me.txt_inc_catego.Size = New System.Drawing.Size(62, 20)
-        Me.txt_inc_catego.TabIndex = 37
-        '
-        'lbl
-        '
-        Me.lbl.AutoSize = True
-        Me.lbl.Location = New System.Drawing.Point(140, 102)
-        Me.lbl.Name = "lbl"
-        Me.lbl.Size = New System.Drawing.Size(41, 13)
-        Me.lbl.TabIndex = 36
-        Me.lbl.Text = "Catego"
+        Me.dgv_incapacidades.AllowUserToAddRows = False
+        Me.dgv_incapacidades.AllowUserToDeleteRows = False
+        Me.dgv_incapacidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_incapacidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.catego})
+        Me.dgv_incapacidades.Location = New System.Drawing.Point(29, 152)
+        Me.dgv_incapacidades.Name = "dgv_incapacidades"
+        Me.dgv_incapacidades.Size = New System.Drawing.Size(475, 250)
+        Me.dgv_incapacidades.TabIndex = 7
         '
         'DataGridViewTextBoxColumn1
         '
@@ -585,6 +576,22 @@ Partial Class Asistencia
         Me.catego.HeaderText = "Cat"
         Me.catego.Name = "catego"
         Me.catego.Width = 40
+        '
+        'lbl_semana
+        '
+        Me.lbl_semana.AutoSize = True
+        Me.lbl_semana.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_semana.Location = New System.Drawing.Point(29, 54)
+        Me.lbl_semana.Name = "lbl_semana"
+        Me.lbl_semana.Size = New System.Drawing.Size(110, 31)
+        Me.lbl_semana.TabIndex = 9
+        Me.lbl_semana.Text = "999999"
+        '
+        'EnrolamientoToolStripMenuItem
+        '
+        Me.EnrolamientoToolStripMenuItem.Name = "EnrolamientoToolStripMenuItem"
+        Me.EnrolamientoToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.EnrolamientoToolStripMenuItem.Text = "Enrolamiento"
         '
         'Asistencia
         '
@@ -674,4 +681,5 @@ Partial Class Asistencia
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents catego As DataGridViewTextBoxColumn
+    Friend WithEvents EnrolamientoToolStripMenuItem As ToolStripMenuItem
 End Class

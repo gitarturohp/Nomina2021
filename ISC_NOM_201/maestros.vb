@@ -177,7 +177,7 @@ Public Class maestros
              "," + mtb_rel_clave.Text +
              "," + mtb_rel_numtra.Text +
              ",getdate()," + mtb_repre.Text + ")", 2)
-        a.qr("actnombres", 2)
+        a.qr("exec actnombres", 2)
         MsgBox("proceso realizado")
         borrai103()
     End Sub
@@ -1047,5 +1047,208 @@ Public Class maestros
         End If
         Process.Start(fic)
         sw.Close()
+    End Sub
+
+    Private Sub bot_ctas_buscar_Click(sender As Object, e As EventArgs) Handles bot_ctas_buscar.Click
+        dgv_ctas_banco.Rows.Clear()
+        Dim contador = 0
+        Dim query = "select i8_relab,i8_clave,v_nombreprop,i8_cuenta,i8_clabe,i8_banco " +
+                    " from aing108 left join catalogos on (familia=5 and i8_banco=tipo),vacre102" +
+                    " where i8_relab=v_relab" +
+                    " and i8_clave=v_clave" +
+                    " and i8_relab in (3,4,11,14,15)"
+        If cmb_ctas_relacion.SelectedIndex >= 0 Then
+            query = query + " and i8_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2)
+        End If
+        If Len(mtb_ctas_numtra.Text) > 0 Then
+            query = query + " and i8_clave=" + mtb_ctas_numtra.Text
+        End If
+        If Len(txt_ctas_nombre.Text) > 0 Then
+            query += " and v_nombreprop like '%" + txt_ctas_nombre.Text + "%'"
+        End If
+        query = query + "order by 2,3,4"
+        a.qr(query, 1)
+        While a.rs.Read
+            contador += 1
+            dgv_ctas_banco.Rows.Add(a.rs.Item(0), a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4), a.rs.Item(5))
+            If contador > 50 Then
+                MsgBox("Demasiados registros, se cortara la busqueda, aplicar filtros")
+                Exit While
+            End If
+        End While
+    End Sub
+
+    Private Sub dgv_ctas_banco_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_ctas_banco.CellDoubleClick
+        Dim clave = 0
+        Dim relab = 0
+        Dim index = 0
+        relab = dgv_ctas_banco.Rows(dgv_ctas_banco.CurrentCellAddress.Y).Cells(0).Value
+        clave = dgv_ctas_banco.Rows(dgv_ctas_banco.CurrentCellAddress.Y).Cells(1).Value
+        Dim query = "select i8_relab,i8_clave,v_nombreprop,i8_cuenta,i8_clabe,i8_banco " +
+                    " from aing108 left join catalogos on (familia=5 and i8_banco=tipo),vacre102" +
+                    " where i8_relab=v_relab" +
+                    " and i8_clave=v_clave" +
+                    " and v_clave=" + clave.ToString +
+                    " and i8_relab=" + relab.ToString
+        a.qr(query, 1)
+        If a.rs.HasRows Then
+            a.rs.Read()
+            While True
+                cmb_ctas_relacion.SelectedIndex = index
+                If Val(Mid(cmb_ctas_relacion.Text, 1, 2)) = a.rs!i8_relab Then
+                    Exit While
+                End If
+                index += 1
+            End While
+            index = 0
+            While True
+                cmb_ctas_bancos.SelectedIndex = index
+                If Val(Mid(cmb_ctas_bancos.Text, 1, 2)) = a.rs!i8_banco Then
+                    Exit While
+                End If
+                index += 1
+            End While
+            mtb_ctas_numtra.Text = a.rs!i8_clave
+            txt_ctas_nombre.Text = a.rs!v_nombreprop
+            cmb_ctas_bancos.SelectedItem = a.rs!i8_banco.ToString
+            txt_ctas_cuenta.Text = a.rs!i8_cuenta
+            txt_ctas_clabe.Text = a.rs!i8_clabe
+        Else
+            MsgBox("No existe")
+        End If
+    End Sub
+
+    Private Sub maestros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        a.qr("select convert(char(2),tipo)+'-'+descrip banco from catalogos where familia=5 and tipo>10", 1)
+        If a.rs.HasRows Then
+            While a.rs.Read
+                cmb_ctas_bancos.Items.Add(a.rs!banco)
+            End While
+        End If
+
+    End Sub
+
+    Private Sub bot_ctas_guardar_Click(sender As Object, e As EventArgs) Handles bot_ctas_guardar.Click
+        If MsgBox("Desea guardar los cambios?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+            borra_ctas()
+            Exit Sub
+        End If
+        If valida_ctas() Then
+            a.qr("select * from aing108 where i8_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2) + " and i8_clave=" + mtb_ctas_numtra.Text, 1)
+            If a.rs.HasRows Then
+                a.qr("update aing108 set i8_cuenta='" + txt_ctas_cuenta.Text +
+                       "',i8_clabe='" + txt_ctas_clabe.Text +
+                       "',i8_banco=" + Mid(cmb_ctas_bancos.Text, 1, 2) +
+                       " where i8_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2) +
+                       " and i8_clave=" + mtb_ctas_numtra.Text, 2)
+            Else
+                a.qr("select i3_persona from aing103 where i3_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2) + " and i3_clave=" + mtb_ctas_numtra.Text.ToString, 1)
+                If a.rs.HasRows Then
+                    a.rs.Read()
+                    a.qr("insert into aing108 values (8,2," + a.rs!i3_persona.ToString + "," + Mid(cmb_ctas_bancos.Text, 1, 2) + ",'" + txt_ctas_cuenta.Text + "',0,'" + txt_ctas_clabe.Text + "',null,getdate(),1," +
+                         Mid(cmb_ctas_relacion.Text, 1, 2) + "," + mtb_ctas_numtra.Text + ",null)", 2)
+                Else
+                    MsgBox("No existe relacion con la empresa")
+                End If
+            End If
+            bot_ctas_buscar.PerformClick()
+            borra_ctas()
+            MsgBox("Registro actualizado")
+        End If
+    End Sub
+    Sub borra_ctas()
+        cmb_ctas_relacion.SelectedIndex = -1
+        cmb_ctas_bancos.SelectedIndex = -1
+        mtb_ctas_numtra.Text = ""
+        txt_ctas_clabe.Text = ""
+        txt_ctas_cuenta.Text = ""
+        txt_ctas_nombre.Text = ""
+    End Sub
+    Function valida_ctas()
+        If cmb_ctas_relacion.SelectedIndex = -1 Then
+            MsgBox("Selecciona relacion con la empresa")
+            Return False
+        End If
+        If Val(mtb_ctas_numtra.Text) = 0 Then
+            MsgBox("Falta numero de trabajador")
+            Return False
+        End If
+        a.qr("select i3_persona from aing103 where i3_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2) + " and i3_clave=" + mtb_ctas_numtra.Text, 1)
+        If Not a.rs.HasRows Then
+            MsgBox("Numero de trabajador no existe")
+            Return False
+        End If
+        If Len(txt_ctas_cuenta.Text) < 10 Or Len(txt_ctas_cuenta.Text) > 11 Then
+            MsgBox("longitud invalida de numero de CUENTA")
+            Return False
+        End If
+        If Len(txt_ctas_clabe.Text) <> 18 Then
+            MsgBox("longitud invalida de numero de CLABE")
+            Return False
+        End If
+        If Len(cmb_ctas_bancos.Text) = 0 Then
+            MsgBox("Seleccionar banco")
+            Return False
+        End If
+        a.qr("select tipo from catalogos where familia=24 and descrip='" + Mid(cmb_ctas_bancos.Text, 1, 2) + "'", 1)
+        If a.rs.HasRows Then
+            a.rs.Read()
+            If a.rs!tipo <> Mid(txt_ctas_clabe.Text, 1, 3) Then
+                MsgBox("Cuenta CLABE no pertence a banco")
+                Return False
+            End If
+        End If
+        Return True
+    End Function
+
+    Private Sub mtb_ctas_numtra_Leave(sender As Object, e As EventArgs) Handles mtb_ctas_numtra.Leave
+        a.qr("select v_nombreprop from vacre102 where v_clave=" + mtb_ctas_numtra.Text + " and v_relab=" + Mid(cmb_ctas_relacion.Text, 1, 2), 1)
+        If a.rs.HasRows Then
+            a.rs.Read()
+            txt_ctas_nombre.Text = a.rs!v_nombreprop
+        Else
+            txt_ctas_nombre.Text = ""
+        End If
+    End Sub
+
+    Private Sub CuentasBancariasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CuentasBancariasToolStripMenuItem.Click
+        Dim file As System.IO.FileStream
+        Dim fic As String = ""
+        Dim sw As System.IO.StreamWriter
+        Dim tponom = 1
+        While True
+            tponom = Val(InputBox("Relacion laboral (99 - Todos) "))
+            If tponom = 0 Then
+                Exit Sub
+            End If
+            If tponom = 3 Or tponom = 4 Or tponom = 11 Or tponom = 14 Or tponom = 99 Or tponom = 15 Then
+                Exit While
+            End If
+        End While
+        fic = "c:\temp\Rep_Cuentas_Bancarias_" + tponom.ToString + ".csv"
+        file = System.IO.File.Create(fic)
+        file.Close()
+        sw = New System.IO.StreamWriter(fic)
+        sw.WriteLine("RELACION,CLAVE,PATERNO,MATERNO,NOMBRE,BANCO,DESCRIP,MONEDA,CUENTA,CLABE")
+        If tponom = 99 Then
+            a.qr("select * from rep_cuentas_bancarias order by 1,2", 1)
+        Else
+            a.qr("select * from rep_cuentas_bancarias where i8_relab=" + tponom.ToString + " order by 1,2", 1)
+        End If
+        While a.rs.Read
+            sw.WriteLine(a.rs.Item(0).ToString + "," +
+                         a.rs.Item(1).ToString + "," +
+                         a.rs.Item(2).ToString + "," +
+                         a.rs.Item(3).ToString + "," +
+                         a.rs.Item(4).ToString + "," +
+                         a.rs.Item(5).ToString + "," +
+                         a.rs.Item(6).ToString + "," +
+                         a.rs.Item(7).ToString + "," +
+                         a.rs.Item(8).ToString + "," +
+                         a.rs.Item(9).ToString + ","
+                         )
+        End While
+        sw.Close()
+        MsgBox("Proceso terminado, reporte generado en " + fic)
     End Sub
 End Class

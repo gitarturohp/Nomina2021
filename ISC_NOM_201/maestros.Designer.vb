@@ -226,6 +226,29 @@ Partial Class maestros
         Me.txt_cat_catego = New System.Windows.Forms.TextBox()
         Me.bot_cat_buscar = New System.Windows.Forms.Button()
         Me.bot_cat_guardar = New System.Windows.Forms.Button()
+        Me.tab_ctasbancarias = New System.Windows.Forms.TabPage()
+        Me.dgv_ctas_banco = New System.Windows.Forms.DataGridView()
+        Me.relacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lbl_ctas_clabe = New System.Windows.Forms.Label()
+        Me.txt_ctas_clabe = New System.Windows.Forms.TextBox()
+        Me.lbl_ctas_cuenta = New System.Windows.Forms.Label()
+        Me.txt_ctas_cuenta = New System.Windows.Forms.TextBox()
+        Me.lbl_ctas_bancos = New System.Windows.Forms.Label()
+        Me.cmb_ctas_bancos = New System.Windows.Forms.ComboBox()
+        Me.bot_ctas_buscar = New System.Windows.Forms.Button()
+        Me.bot_ctas_eliminar = New System.Windows.Forms.Button()
+        Me.bot_ctas_guardar = New System.Windows.Forms.Button()
+        Me.lbl_ctas_numtra = New System.Windows.Forms.Label()
+        Me.lbl_ctas_relacion = New System.Windows.Forms.Label()
+        Me.lbl_ctas_nombre = New System.Windows.Forms.Label()
+        Me.txt_ctas_nombre = New System.Windows.Forms.TextBox()
+        Me.mtb_ctas_numtra = New System.Windows.Forms.MaskedTextBox()
+        Me.cmb_ctas_relacion = New System.Windows.Forms.ComboBox()
         Me.men_maestros = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -238,6 +261,7 @@ Partial Class maestros
         Me.Nom105ListadoTrabajadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Nom102CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeCorreosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CuentasBancariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tab_catalogos.SuspendLayout()
         Me.tab_fisica.SuspendLayout()
         CType(Me.dgv_fisicas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -252,6 +276,8 @@ Partial Class maestros
         CType(Me.dgv_becarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab_categorias.SuspendLayout()
         CType(Me.dgv_categorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tab_ctasbancarias.SuspendLayout()
+        CType(Me.dgv_ctas_banco, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.men_maestros.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -264,6 +290,7 @@ Partial Class maestros
         Me.tab_catalogos.Controls.Add(Me.tab_jubilados)
         Me.tab_catalogos.Controls.Add(Me.tab_becarios)
         Me.tab_catalogos.Controls.Add(Me.tab_categorias)
+        Me.tab_catalogos.Controls.Add(Me.tab_ctasbancarias)
         Me.tab_catalogos.Location = New System.Drawing.Point(33, 44)
         Me.tab_catalogos.Name = "tab_catalogos"
         Me.tab_catalogos.SelectedIndex = 0
@@ -2138,6 +2165,223 @@ Partial Class maestros
         Me.bot_cat_guardar.Text = "Guardar"
         Me.bot_cat_guardar.UseVisualStyleBackColor = False
         '
+        'tab_ctasbancarias
+        '
+        Me.tab_ctasbancarias.BackColor = System.Drawing.Color.LightGray
+        Me.tab_ctasbancarias.Controls.Add(Me.dgv_ctas_banco)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_clabe)
+        Me.tab_ctasbancarias.Controls.Add(Me.txt_ctas_clabe)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_cuenta)
+        Me.tab_ctasbancarias.Controls.Add(Me.txt_ctas_cuenta)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_bancos)
+        Me.tab_ctasbancarias.Controls.Add(Me.cmb_ctas_bancos)
+        Me.tab_ctasbancarias.Controls.Add(Me.bot_ctas_buscar)
+        Me.tab_ctasbancarias.Controls.Add(Me.bot_ctas_eliminar)
+        Me.tab_ctasbancarias.Controls.Add(Me.bot_ctas_guardar)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_numtra)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_relacion)
+        Me.tab_ctasbancarias.Controls.Add(Me.lbl_ctas_nombre)
+        Me.tab_ctasbancarias.Controls.Add(Me.txt_ctas_nombre)
+        Me.tab_ctasbancarias.Controls.Add(Me.mtb_ctas_numtra)
+        Me.tab_ctasbancarias.Controls.Add(Me.cmb_ctas_relacion)
+        Me.tab_ctasbancarias.Location = New System.Drawing.Point(4, 22)
+        Me.tab_ctasbancarias.Name = "tab_ctasbancarias"
+        Me.tab_ctasbancarias.Size = New System.Drawing.Size(721, 409)
+        Me.tab_ctasbancarias.TabIndex = 7
+        Me.tab_ctasbancarias.Text = "Bancos"
+        '
+        'dgv_ctas_banco
+        '
+        Me.dgv_ctas_banco.AllowUserToAddRows = False
+        Me.dgv_ctas_banco.AllowUserToDeleteRows = False
+        Me.dgv_ctas_banco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_ctas_banco.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.relacion, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
+        Me.dgv_ctas_banco.Location = New System.Drawing.Point(42, 129)
+        Me.dgv_ctas_banco.Name = "dgv_ctas_banco"
+        Me.dgv_ctas_banco.ReadOnly = True
+        Me.dgv_ctas_banco.Size = New System.Drawing.Size(577, 253)
+        Me.dgv_ctas_banco.TabIndex = 42
+        '
+        'relacion
+        '
+        Me.relacion.HeaderText = "Rela"
+        Me.relacion.Name = "relacion"
+        Me.relacion.ReadOnly = True
+        Me.relacion.Width = 35
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Numtra"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 50
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 200
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Cuenta"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 70
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.HeaderText = "CLABE"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 120
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Banco"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 50
+        '
+        'lbl_ctas_clabe
+        '
+        Me.lbl_ctas_clabe.AutoSize = True
+        Me.lbl_ctas_clabe.Location = New System.Drawing.Point(314, 77)
+        Me.lbl_ctas_clabe.Name = "lbl_ctas_clabe"
+        Me.lbl_ctas_clabe.Size = New System.Drawing.Size(41, 13)
+        Me.lbl_ctas_clabe.TabIndex = 41
+        Me.lbl_ctas_clabe.Text = "CLABE"
+        '
+        'txt_ctas_clabe
+        '
+        Me.txt_ctas_clabe.Location = New System.Drawing.Point(317, 93)
+        Me.txt_ctas_clabe.Name = "txt_ctas_clabe"
+        Me.txt_ctas_clabe.Size = New System.Drawing.Size(192, 20)
+        Me.txt_ctas_clabe.TabIndex = 40
+        '
+        'lbl_ctas_cuenta
+        '
+        Me.lbl_ctas_cuenta.AutoSize = True
+        Me.lbl_ctas_cuenta.Location = New System.Drawing.Point(210, 77)
+        Me.lbl_ctas_cuenta.Name = "lbl_ctas_cuenta"
+        Me.lbl_ctas_cuenta.Size = New System.Drawing.Size(41, 13)
+        Me.lbl_ctas_cuenta.TabIndex = 39
+        Me.lbl_ctas_cuenta.Text = "Cuenta"
+        '
+        'txt_ctas_cuenta
+        '
+        Me.txt_ctas_cuenta.Location = New System.Drawing.Point(213, 93)
+        Me.txt_ctas_cuenta.Name = "txt_ctas_cuenta"
+        Me.txt_ctas_cuenta.Size = New System.Drawing.Size(98, 20)
+        Me.txt_ctas_cuenta.TabIndex = 38
+        '
+        'lbl_ctas_bancos
+        '
+        Me.lbl_ctas_bancos.AutoSize = True
+        Me.lbl_ctas_bancos.Location = New System.Drawing.Point(45, 75)
+        Me.lbl_ctas_bancos.Name = "lbl_ctas_bancos"
+        Me.lbl_ctas_bancos.Size = New System.Drawing.Size(43, 13)
+        Me.lbl_ctas_bancos.TabIndex = 37
+        Me.lbl_ctas_bancos.Text = "Bancos"
+        '
+        'cmb_ctas_bancos
+        '
+        Me.cmb_ctas_bancos.BackColor = System.Drawing.Color.White
+        Me.cmb_ctas_bancos.FormattingEnabled = True
+        Me.cmb_ctas_bancos.Location = New System.Drawing.Point(42, 92)
+        Me.cmb_ctas_bancos.Name = "cmb_ctas_bancos"
+        Me.cmb_ctas_bancos.Size = New System.Drawing.Size(165, 21)
+        Me.cmb_ctas_bancos.TabIndex = 36
+        '
+        'bot_ctas_buscar
+        '
+        Me.bot_ctas_buscar.BackColor = System.Drawing.SystemColors.Control
+        Me.bot_ctas_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bot_ctas_buscar.Location = New System.Drawing.Point(614, 85)
+        Me.bot_ctas_buscar.Name = "bot_ctas_buscar"
+        Me.bot_ctas_buscar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_ctas_buscar.TabIndex = 35
+        Me.bot_ctas_buscar.Text = "Buscar"
+        Me.bot_ctas_buscar.UseVisualStyleBackColor = False
+        '
+        'bot_ctas_eliminar
+        '
+        Me.bot_ctas_eliminar.BackColor = System.Drawing.SystemColors.Control
+        Me.bot_ctas_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bot_ctas_eliminar.Location = New System.Drawing.Point(614, 54)
+        Me.bot_ctas_eliminar.Name = "bot_ctas_eliminar"
+        Me.bot_ctas_eliminar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_ctas_eliminar.TabIndex = 34
+        Me.bot_ctas_eliminar.Text = "Eliminar"
+        Me.bot_ctas_eliminar.UseVisualStyleBackColor = False
+        '
+        'bot_ctas_guardar
+        '
+        Me.bot_ctas_guardar.BackColor = System.Drawing.SystemColors.Control
+        Me.bot_ctas_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bot_ctas_guardar.Location = New System.Drawing.Point(614, 25)
+        Me.bot_ctas_guardar.Name = "bot_ctas_guardar"
+        Me.bot_ctas_guardar.Size = New System.Drawing.Size(75, 23)
+        Me.bot_ctas_guardar.TabIndex = 33
+        Me.bot_ctas_guardar.Text = "Guardar"
+        Me.bot_ctas_guardar.UseVisualStyleBackColor = False
+        '
+        'lbl_ctas_numtra
+        '
+        Me.lbl_ctas_numtra.AutoSize = True
+        Me.lbl_ctas_numtra.Location = New System.Drawing.Point(167, 31)
+        Me.lbl_ctas_numtra.Name = "lbl_ctas_numtra"
+        Me.lbl_ctas_numtra.Size = New System.Drawing.Size(41, 13)
+        Me.lbl_ctas_numtra.TabIndex = 32
+        Me.lbl_ctas_numtra.Text = "Numtra"
+        '
+        'lbl_ctas_relacion
+        '
+        Me.lbl_ctas_relacion.AutoSize = True
+        Me.lbl_ctas_relacion.Location = New System.Drawing.Point(45, 30)
+        Me.lbl_ctas_relacion.Name = "lbl_ctas_relacion"
+        Me.lbl_ctas_relacion.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_ctas_relacion.TabIndex = 31
+        Me.lbl_ctas_relacion.Text = "Relacion"
+        '
+        'lbl_ctas_nombre
+        '
+        Me.lbl_ctas_nombre.AutoSize = True
+        Me.lbl_ctas_nombre.Location = New System.Drawing.Point(234, 31)
+        Me.lbl_ctas_nombre.Name = "lbl_ctas_nombre"
+        Me.lbl_ctas_nombre.Size = New System.Drawing.Size(44, 13)
+        Me.lbl_ctas_nombre.TabIndex = 30
+        Me.lbl_ctas_nombre.Text = "Nombre"
+        '
+        'txt_ctas_nombre
+        '
+        Me.txt_ctas_nombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txt_ctas_nombre.Location = New System.Drawing.Point(237, 47)
+        Me.txt_ctas_nombre.Name = "txt_ctas_nombre"
+        Me.txt_ctas_nombre.Size = New System.Drawing.Size(272, 20)
+        Me.txt_ctas_nombre.TabIndex = 29
+        '
+        'mtb_ctas_numtra
+        '
+        Me.mtb_ctas_numtra.BackColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.mtb_ctas_numtra.Location = New System.Drawing.Point(169, 47)
+        Me.mtb_ctas_numtra.Mask = "999999"
+        Me.mtb_ctas_numtra.Name = "mtb_ctas_numtra"
+        Me.mtb_ctas_numtra.Size = New System.Drawing.Size(61, 20)
+        Me.mtb_ctas_numtra.TabIndex = 28
+        Me.mtb_ctas_numtra.ValidatingType = GetType(Integer)
+        '
+        'cmb_ctas_relacion
+        '
+        Me.cmb_ctas_relacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmb_ctas_relacion.FormattingEnabled = True
+        Me.cmb_ctas_relacion.Items.AddRange(New Object() {"03-Obrero", "04-Empleado", "11-Pension", "14-Jubilado", "15-Becario"})
+        Me.cmb_ctas_relacion.Location = New System.Drawing.Point(42, 47)
+        Me.cmb_ctas_relacion.Name = "cmb_ctas_relacion"
+        Me.cmb_ctas_relacion.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_ctas_relacion.TabIndex = 27
+        '
         'men_maestros
         '
         Me.men_maestros.BackColor = System.Drawing.Color.DarkSeaGreen
@@ -2181,7 +2425,7 @@ Partial Class maestros
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator5, Me.ToolStripSeparator4, Me.Nom105ListadoTrabajadoresToolStripMenuItem, Me.Nom102CategoriasToolStripMenuItem, Me.ReporteDeCorreosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator5, Me.ToolStripSeparator4, Me.Nom105ListadoTrabajadoresToolStripMenuItem, Me.Nom102CategoriasToolStripMenuItem, Me.ReporteDeCorreosToolStripMenuItem, Me.CuentasBancariasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -2213,6 +2457,12 @@ Partial Class maestros
         Me.ReporteDeCorreosToolStripMenuItem.Name = "ReporteDeCorreosToolStripMenuItem"
         Me.ReporteDeCorreosToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.ReporteDeCorreosToolStripMenuItem.Text = "Reporte de correos"
+        '
+        'CuentasBancariasToolStripMenuItem
+        '
+        Me.CuentasBancariasToolStripMenuItem.Name = "CuentasBancariasToolStripMenuItem"
+        Me.CuentasBancariasToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.CuentasBancariasToolStripMenuItem.Text = "Cuentas Bancarias"
         '
         'maestros
         '
@@ -2246,6 +2496,9 @@ Partial Class maestros
         Me.tab_categorias.ResumeLayout(False)
         Me.tab_categorias.PerformLayout()
         CType(Me.dgv_categorias, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tab_ctasbancarias.ResumeLayout(False)
+        Me.tab_ctasbancarias.PerformLayout()
+        CType(Me.dgv_ctas_banco, System.ComponentModel.ISupportInitialize).EndInit()
         Me.men_maestros.ResumeLayout(False)
         Me.men_maestros.PerformLayout()
         Me.ResumeLayout(False)
@@ -2460,4 +2713,28 @@ Partial Class maestros
     Friend WithEvents txt_cat_catego As TextBox
     Friend WithEvents MantenimientoABaseDeDatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeCorreosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tab_ctasbancarias As TabPage
+    Friend WithEvents lbl_ctas_clabe As Label
+    Friend WithEvents txt_ctas_clabe As TextBox
+    Friend WithEvents lbl_ctas_cuenta As Label
+    Friend WithEvents txt_ctas_cuenta As TextBox
+    Friend WithEvents lbl_ctas_bancos As Label
+    Friend WithEvents cmb_ctas_bancos As ComboBox
+    Friend WithEvents bot_ctas_buscar As Button
+    Friend WithEvents bot_ctas_eliminar As Button
+    Friend WithEvents bot_ctas_guardar As Button
+    Friend WithEvents lbl_ctas_numtra As Label
+    Friend WithEvents lbl_ctas_relacion As Label
+    Friend WithEvents lbl_ctas_nombre As Label
+    Friend WithEvents txt_ctas_nombre As TextBox
+    Friend WithEvents mtb_ctas_numtra As MaskedTextBox
+    Friend WithEvents cmb_ctas_relacion As ComboBox
+    Friend WithEvents dgv_ctas_banco As DataGridView
+    Friend WithEvents relacion As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents CuentasBancariasToolStripMenuItem As ToolStripMenuItem
 End Class

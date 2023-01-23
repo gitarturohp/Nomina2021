@@ -198,6 +198,7 @@ Public Class nomina
     End Sub
 
     Private Sub bot_cargar_Click(sender As System.Object, e As System.EventArgs) Handles bot_cargar.Click
+        '======== POLIZAS DE SIZ
         a.qr("select c2_num,c2_documento,c2_serie,sum(case when c2_tipo='C' then c2_importe else 0 end) cargo," +
             " sum(case when c2_tipo='A' then c2_importe else 0 end) abono from acon202" +
             " group by c2_num,c2_documento,c2_serie order by 1,2", 1)
@@ -215,6 +216,22 @@ Public Class nomina
             End If
             cont = cont - 1
         End While
+        '======== POLIZAS DE SAP
+        a.qr("exec rev_sap_polizas", 1)
+        dgv_sap_polizas.Rows.Clear()
+        cont = 0
+        While a.rs.Read
+            dgv_sap_polizas.Rows.Add(a.rs.Item(0), a.rs.Item(1), a.rs.Item(2), a.rs.Item(3), a.rs.Item(4))
+            cont = cont + 1
+        End While
+        While cont >= 0
+            If dgv_sap_polizas.Rows(cont).Cells(3).Value() <> dgv_sap_polizas.Rows(cont).Cells(4).Value() Then
+                dgv_sap_polizas.Rows(cont).DefaultCellStyle.BackColor = Color.Red
+            Else
+                dgv_sap_polizas.Rows(cont).DefaultCellStyle.BackColor = Color.White
+            End If
+            cont = cont - 1
+        End While
     End Sub
 
     Private Sub bot_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bot_carga.Click
@@ -222,7 +239,7 @@ Public Class nomina
         Dim mish As Worksheet
         Dim cont = 2
         If MsgBox("Eliminar Carga Anterior?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            a.qr("delete from acon202", 2)
+            a.qr("truncate table acon202", 2)
         End If
         If cd.ShowDialog() = System.Windows.Forms.DialogResult.Cancel Then
             Exit Sub
@@ -250,6 +267,7 @@ Public Class nomina
         a.qr("delete from acon202 where c2_importe=0", 2)
         miwb = Nothing
         mish = Nothing
+
     End Sub
 
     Private Sub bot_borrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bot_borrar.Click
@@ -345,17 +363,25 @@ Public Class nomina
             a.rs.Read()
             wsem = a.rs.Item(0)
             a.qr("truncate table acon202", 2)
+            a.qr("truncate table acon203", 2)
             a.qr("poliza_nomina " + wsem.ToString + ",1,1", 2)
-            a.qr("poliza_nomina " + wsem.ToString + ",2,1", 2)
+            a.qr("poliza_nomina_sap " + wsem.ToString + ",1,1", 2)
             If premio = 1 Then
                 a.qr("poliza_nomina " + wsem.ToString + ",1,2", 2)
                 a.qr("poliza_nomina " + wsem.ToString + ",1,5", 2)
+                a.qr("poliza_nomina_sap " + wsem.ToString + ",1,2", 2)
+                a.qr("poliza_nomina_sap " + wsem.ToString + ",1,5", 2)
             End If
             a.qr("poliza_nomina " + wsem.ToString + ",1,3", 2)
-            a.qr("poliza_nomina " + wsem.ToString + ",2,3", 2)
             a.qr("poliza_nomina " + wsem.ToString + ",1,4", 2)
-            a.qr("poliza_nomina " + wsem.ToString + ",2,4", 2)
+            a.qr("poliza_nomina_sap " + wsem.ToString + ",1,3", 2)
+            a.qr("poliza_nomina_sap " + wsem.ToString + ",1,4", 2)
             a.qr("exec pro_isr_sub_causados " + wsem.ToString, 2)
+            If MsgBox("Generar poliza empleados?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                a.qr("poliza_nomina " + wsem.ToString + ",2,1", 2)
+                a.qr("poliza_nomina " + wsem.ToString + ",2,3", 2)
+                a.qr("poliza_nomina " + wsem.ToString + ",2,4", 2)
+            End If
             MsgBox("Proceso realizado")
         End If
 
@@ -369,5 +395,74 @@ Public Class nomina
         hj = wb.Worksheets(0)
         MsgBox(hj.Range(7, 3).Value.ToString)
         MsgBox(hj.Range("C7").Value.ToString)
+    End Sub
+
+    Private Sub ErrorCuentasSAPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ErrorCuentasSAPToolStripMenuItem.Click
+        Dim file As System.IO.FileStream
+        Dim fic As String = "c:\temp\error_ctas_sap.txt"
+        file = System.IO.File.Create(fic)
+        file.Close()
+        Dim sw As New System.IO.StreamWriter(fic)
+        sw.WriteLine("FOLIO" + Chr(9) + "SERIE" + Chr(9) + "DOCTO" + Chr(9) + "CUENTA" + Chr(9) + "NOMBRE" + Chr(9) + "SAP")
+        a.qr("select c3_num,c3_serie,c3_documento,c3_cta,f1_nomcuenta,descrip" +
+            " from acon203 " +
+            " left join sap_cuentas on (cta_siz=replace(c3_cta,'-','')) " +
+            " left join sap_deptos on (c3_centro=centro)" +
+            " left join acon101 on (f1_ctazmxobr=c3_cta)" +
+            " where descrip is null" +
+            " order by c3_tipo desc,cta_sap", 1)
+        While a.rs.Read
+            sw.WriteLine(a.rs.Item(0).ToString + Chr(9) +
+                        a.rs.Item(1).ToString + Chr(9) +
+                        a.rs.Item(2).ToString + Chr(9) +
+                        a.rs.Item(3).ToString + Chr(9) +
+                        a.rs.Item(4).ToString + Chr(9) +
+                        a.rs.Item(5).ToString + Chr(9)
+                         )
+        End While
+        sw.Close()
+        MsgBox("Proceso realizado")
+        Process.Start("c:\temp\error_ctas_sap.txt")
+    End Sub
+
+    Private Sub bot_polizas_SAP_Click(sender As Object, e As EventArgs) Handles bot_polizas_SAP.Click
+        Dim b As New Clase
+        Dim folio = 0
+        Dim file As System.IO.FileStream
+        Dim fic As String
+        Dim sw As System.IO.StreamWriter
+        a.qr("exec rev_sap_polizas", 1)
+        If a.rs.HasRows Then
+            While a.rs.Read
+                b.qr("select c2_folio from acon201 where c2_ano=2022 and c2_documento=" + a.rs!docto.ToString + " and c2_serie=" + a.rs!serie.ToString, 1)
+                b.rs.Read()
+                folio = b.rs!c2_folio
+                b.qr("exec rep_sap_poliza " + a.rs!folio.ToString + "," + a.rs!serie.ToString + "," + a.rs!docto.ToString, 1)
+                If b.rs.HasRows Then
+                    fic = "c:\temp\10_xxx_" + folio.ToString + ".csv"
+                    file = System.IO.File.Create(fic)
+                    file.Close()
+                    sw = New System.IO.StreamWriter(fic)
+                    sw.WriteLine("CTAMAYOR,DESCRIP,IMPORTE,CECO,ORDEN,DH,ASIGNACION,CEBE,PROVEEDOR,CME")
+                    While b.rs.Read
+                        sw.WriteLine(b.rs.Item(0).ToString + "," +
+                                     Replace(b.rs.Item(1).ToString, ",", " ") + "," +
+                                     b.rs.Item(2).ToString + "," +
+                                     IIf(b.rs.Item(3) = 0, "", b.rs.Item(3).ToString) + "," +
+                                     b.rs.Item(4).ToString + "," +
+                                     b.rs.Item(5).ToString + "," +
+                                     b.rs.Item(6).ToString + "," +
+                                     b.rs.Item(7).ToString + "," +
+                                     b.rs.Item(8).ToString + "," +
+                                     b.rs.Item(9).ToString
+                                     )
+                    End While
+                    sw.Close()
+                End If
+                fic = Nothing
+                sw = Nothing
+            End While
+        End If
+        MsgBox("Proceso terminado")
     End Sub
 End Class

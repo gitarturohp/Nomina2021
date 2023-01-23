@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ISC_NOM_201.exe" size="2120704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ISC_NOM_201.exe" size="2147328">
       <assemblyIdentity name="ISC_NOM_201" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>32oAPcvzuv/Mq/RC9klBJYcjGzeRmt4BmafVovAa77w=</dsig:DigestValue>
+        <dsig:DigestValue>cIvYWW+3kdjOaCEGS1QPW65CFQRjSbQrUV9lEoFVbiE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.mshtml.dll" size="8032648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.mshtml.dll" size="8027464">
       <assemblyIdentity name="Microsoft.mshtml" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tgMNMgyI1wYExBjyAq/P48KMM1se7A/lMwnx1Y9gxT4=</dsig:DigestValue>
+        <dsig:DigestValue>9uC3bJw/FTMYbE2nvJtKdf4CxEHjJ+brvvXeTZj+d+g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

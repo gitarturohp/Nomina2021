@@ -2824,6 +2824,7 @@ Public Class procesos
                     a.qr("exec act_ultim_fec_catego", 2)
                     a.qr("backup log san_cristobal with truncate_only DBCC SHRINKDATABASE (san_cristobal , TRUNCATEONLY) ", 2)
                     a.qr("update parametros set valor=convert(char(10),getdate(),103) where tipo=1 and clave='logs'", 2)
+                    a.qr("exec proyectos " + sem.ToString, 2)
                     MsgBox("Proceso realizado")
                     correo("El proceso de nomina fue concluido.", "Nomina correcta semana " + sem.ToString)
                 End If
@@ -2854,7 +2855,7 @@ Public Class procesos
             a.rs.Read()
             sem = a.rs!i4_ano_sem
             If MsgBox("Cargar acumulado de nomina semana (anom401)" + sem.ToString + "?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                a.qr("carga_301_401 " + sem.ToString + ",1", 2)
+                a.qr("exec carga_301_401 " + sem.ToString + ",1", 2)
                 MsgBox("Proceso realizado")
                 correo("El proceso de nomina ya fue ejecutado, por favor revisar los calculos para continuar el proceso.", "Proceso Nomina Semana " + sem.ToString)
             End If
@@ -3334,6 +3335,7 @@ Public Class procesos
         Dim numtra = 0
         Dim tipo = ""
         Dim archivo = ""
+        Dim conceptopago = ""
         Dim texto = "Industrial Azucarera San Cristobal S.A. de C.V." + Chr(13) + Chr(13)
         texto = texto + "Con el fin de dar cumplimiento a lo establecido en los artículos 29, fracción V del CFF y 99, fracción III de la Ley del ISR, a través del presente correo le hacemos llegar su CFDI (xml y representación impresa en pdf) correspondientes al período:"
         Dim semana = ""
@@ -3350,12 +3352,12 @@ Public Class procesos
                 Exit While
             End If
         End While
-        tipo = UCase(InputBox("Tipo de pago (N,A,P,...)"))
+        tipo = UCase(InputBox("Tipo de pago Z-Nomina normal, (N,A,P,...) - Prestacion"))
         numtra = Val(InputBox("Reenvio, numero de trabajador:"))
         If numtra > 0 Then
             a.qr("update bitacora_recibos set enviado=0 where semana=" + semana.ToString + " and numtra=" + numtra.ToString + " and tipo='" + tipo + "'", 2)
         End If
-        If tipo = "N" Then
+        If tipo = "Z" Then
             a.qr("insert into bitacora_recibos" +
                 " select distinct j1_numtra,null," + semana + ",0,2,'" + tipo + "' from anom401" +
                 " where j1_semana = " + semana.ToString +
@@ -3372,14 +3374,17 @@ Public Class procesos
                     " and k2_tponom=2" +
                     " and k2_tipo='" + tipo + "'", 2)
             End If
+            conceptopago = InputBox("Concepto de pago: ")
+            If Len(conceptopago) = 0 Then
+                conceptopago = "Prestación"
+            End If
         End If
-        If tipo = "N" Then
+        If tipo = "Z" Then
             If Directory.Exists(ruta + "empleados\" + semana.ToString) Then
                 di = New IO.DirectoryInfo(ruta + "empleados\" + semana.ToString)
                 diar1 = di.GetFiles("*.pdf")
                 For Each dra In diar1
-                    numtra = Val(Mid(dra.ToString, 14, 5))
-                    'MsgBox(numtra)
+                    numtra = Val(Mid(dra.ToString, 25, 5))
                     archivo = Mid(dra.ToString, 1, Len(dra.ToString) - 3)
                     a.qr("select enviado from bitacora_recibos where numtra=" + numtra.ToString + " and semana=" + semana, 1)
                     If a.rs.HasRows Then
@@ -3408,7 +3413,7 @@ Public Class procesos
                             a.qr("select descrip from catalogos where familia=21 and tipo=" + numtra.ToString, 1)
                             If a.rs.HasRows Then
                                 a.rs.Read()
-                                correorecibo(a.rs!descrip, ruta + "empleados\" + semana.ToString + "\" + tipo + "\" + archivo, texto + Chr(13) + Chr(13), semana, "aguinaldo")
+                                correorecibo(a.rs!descrip, ruta + "empleados\" + semana.ToString + "\" + tipo + "\" + archivo, texto + Chr(13) + Chr(13), semana, conceptopago + " ")
                             End If
                         End If
                     End If
@@ -3870,6 +3875,30 @@ Public Class procesos
             hoja.Range("B" + lin.ToString).NumberValue = a.rs.Item(1)
             lin += 1
         End While
+        lin += 1
+        hoja.Range("A" + lin.ToString).Text = "Personal extra servicios administrativos"
+        lin += 1
+        hoja.Range("A" + lin.ToString).Text = "DIA"
+        hoja.Range("B" + lin.ToString).Text = "CANTIDAD"
+        lin += 1
+        a.qr("rep_even_resumen " + lbl_sem_activa.Text + ",5", 1)
+        While a.rs.Read
+            hoja.Range("A" + lin.ToString).Text = a.rs.Item(0)
+            hoja.Range("B" + lin.ToString).NumberValue = a.rs.Item(1)
+            lin += 1
+        End While
+        lin += 1
+        hoja.Range("A" + lin.ToString).Text = "Personal extra bodega de azucar"
+        lin += 1
+        hoja.Range("A" + lin.ToString).Text = "DIA"
+        hoja.Range("B" + lin.ToString).Text = "CANTIDAD"
+        lin += 1
+        a.qr("rep_even_resumen " + lbl_sem_activa.Text + ",6", 1)
+        While a.rs.Read
+            hoja.Range("A" + lin.ToString).Text = a.rs.Item(0)
+            hoja.Range("B" + lin.ToString).NumberValue = a.rs.Item(1)
+            lin += 1
+        End While
 
         wb.SaveToFile("C:\temp\eventuales_" + lbl_sem_activa.Text + ".xlsx", ExcelVersion.Version2010)
         wb = Nothing
@@ -4108,7 +4137,7 @@ Public Class procesos
                 Exit While
             End If
         End While
-        a.qr("cargar_503 '" + letra + "',2,11", 2)
+        a.qr("cargar_503 '" + letra + "',5,11", 2)
         MsgBox("Proceso terminado")
     End Sub
 

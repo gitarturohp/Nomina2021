@@ -137,6 +137,9 @@ Public Class Asistencia
         chk_reloj.Checked = False
         chk_domfes.Checked = False
         chk_domrep.Checked = False
+        txt_nom_numtra.Text = ""
+        txt_numtra.Text = ""
+        txt_correo.Text = ""
         a.qr("select tipo,descrip,max(case when familia=15 then 'X' else '' end) fij,max(case when familia=16 then 'X' else '' end) rel,max(case when familia=17 then 'X' else '' end) dom,max(case when familia=22 then 'X' else '' end) dorep from catalogos" +
                 " where familia in (15,16,17,22)" +
                 " and tipo=" + txt_numtra.Text +
@@ -263,25 +266,71 @@ Public Class Asistencia
             End Try
             Dim lin() As String
             Dim fecha As String = ""
+            Dim tipo As Int16 = 1
+            Dim numtra = 0
+            Dim linea = 1
             Dim wdia = 0
-            Dim arr As New ArrayList
-            While ar.Peek() > 0
-                lin = Split(ar.ReadLine, Chr(9))
-                If Not lin Is Nothing Then
-                    If lin(4) = 0 Then
-                        fecha = lin(2)
-                        fecha = Mid(fecha, 9, 2) + "/" + Mid(fecha, 6, 2) + "/" + Mid(fecha, 1, 4) + Mid(fecha, 11, 9)
-                        a.qr("select h2_dia from anom202 where h2_fecha='" + Mid(fecha.ToString, 1, 10) + "'", 1)
-                        a.rs.Read()
-                        wdia = a.rs!h2_dia
-                        a.qr("select * from anom204 where convert(char(10),h4_fecha,103)='" + Mid(fecha, 1, 10) + "' and h4_numtra=" + lin(1).ToString, 1)
-                        If Not a.rs.HasRows Then
-                            a.qr("insert into anom204 values(" + lin(0).ToString + "," + lin(1).ToString + ",'" + fecha + "'," + wdia.ToString + "," + lin(4).ToString + ")", 2)
-                        End If
-                    End If
+            'Dim arr As New ArrayList
+            While True
+                tipo = InputBox("Tipo de registro (1)-Huella Dactilar  (2)-Rostro (3)-ControlAccesos")
+                If tipo >= 0 And tipo < 4 Then
+                    Exit While
                 End If
             End While
-            MsgBox("Carga realizada")
+            If tipo = 0 Then
+                MsgBox("Proceso cancelado")
+                Exit Sub
+            End If
+            If tipo = 1 Then
+                While ar.Peek() > 0
+                    lin = Split(ar.ReadLine, Chr(9))
+                    If Not lin Is Nothing Then
+                        If lin(4) = 0 Then
+                            fecha = lin(2)
+                            fecha = Mid(fecha, 9, 2) + "/" + Mid(fecha, 6, 2) + "/" + Mid(fecha, 1, 4) + Mid(fecha, 11, 9)
+                            a.qr("select h2_dia from anom202 where h2_fecha='" + Mid(fecha.ToString, 1, 10) + "'", 1)
+                            a.rs.Read()
+                            wdia = a.rs!h2_dia
+                            a.qr("select * from anom204 where convert(char(10),h4_fecha,103)='" + Mid(fecha, 1, 10) + "' and h4_numtra=" + lin(1).ToString, 1)
+                            If Not a.rs.HasRows Then
+                                a.qr("insert into anom204 values(" + lin(0).ToString + "," + lin(1).ToString + ",'" + fecha + "'," + wdia.ToString + "," + lin(4).ToString + ",1)", 2)
+                            End If
+                        End If
+                    End If
+                End While
+                MsgBox("Carga realizada, huella dactilar")
+            End If
+            If tipo = 2 Then
+                a.qr("truncate table facial", 2)
+                While ar.Peek() > 0
+                    lin = Split(ar.ReadLine, ",")
+                    If Not lin Is Nothing Then
+                        If linea = 0 Then
+                            numtra = Val(Mid(lin(5), 1, 6))
+                            a.qr("insert into facial values ('" + lin(0).ToString + "',null," + lin(2) + ",'" + lin(3) +
+                            "','" + lin(4) + "'," + numtra.ToString + ",'" + lin(6) + "')", 2)
+                        Else
+                            linea = 0
+                        End If
+                    End If
+                End While
+                MsgBox("Carga realizada, facial")
+            End If
+            If tipo = 3 Then
+                While ar.Peek() > 0
+                    lin = Split(ar.ReadLine, ",")
+                    If Not lin Is Nothing Then
+                        fecha = Replace(lin(17), Chr(34), "")
+                        fecha = Mid(fecha, 7, 4) + "-" + Mid(fecha, 4, 2) + "-" + Mid(fecha, 1, 2) + " " + Replace(lin(18), Chr(34), "")
+                        fecha = Mid(fecha, 1, 4) + "/" + Mid(fecha, 6, 2) + "/" + Mid(fecha, 9, 2) + Mid(fecha, 11, 9)
+                        a.qr("insert into facial values ('" + fecha + "',null,'" + lin(21) + "','',''," + lin(19).ToString + ",'ControlAccesos')", 2)
+                    End If
+                End While
+                MsgBox("Carga realizada, Control de Accesos")
+            End If
+            If MsgBox("Procesar carga asistencia?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                a.qr("exec carga_lector " + lbl_semana.Text + ",1", 2)
+            End If
         End If
     End Sub
 
@@ -291,6 +340,7 @@ Public Class Asistencia
         Dim linea(23)
         Dim cont = 0
         Dim archivo = ""
+        ' ==== EXPORTACION DE ARCHIVO CSV DE INCAPACIDADES ====
         If cd.ShowDialog = DialogResult.OK Then
             archivo = cd.FileName
             objReader = New StreamReader(archivo)
@@ -433,5 +483,40 @@ Public Class Asistencia
         txt_inc_catego.Text = ""
         cmb_inc_estado.SelectedIndex = -1
         cmb_inc_rama.SelectedIndex = -1
+    End Sub
+
+    Private Sub EnrolamientoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnrolamientoToolStripMenuItem.Click
+        Dim ar As StreamReader
+        If cd.ShowDialog() = MsgBoxResult.Ok Then
+            Try
+                ar = New StreamReader(cd.FileName)
+            Catch ex As Exception
+                Exit Sub
+            End Try
+            Dim lin() As String
+            Dim fecha As String = ""
+            Dim tipo As Int16 = 1
+            Dim linea = 1
+            Dim wdia = 0
+            Dim numtra = 0
+            'Dim arr As New ArrayList
+            a.qr("truncate table facial", 2)
+            While ar.Peek() > 0
+                If linea > 1 Then
+                    lin = Split(ar.ReadLine, ",")
+                    numtra = Val(Mid(lin(5), 1, 6))
+                    If Not lin Is Nothing Then
+                        If numtra > 0 Then
+                            fecha = lin(0)
+                            fecha = Mid(fecha, 9, 2) + "/" + Mid(fecha, 6, 2) + "/" + Mid(fecha, 1, 4) + Mid(fecha, 11, 9)
+                            a.qr("insert into facial values ('" + fecha + "',null,'" + lin(2) + "','" + lin(3) + "',''," + numtra.ToString + ",'" + lin(6) + "')", 2)
+                        End If
+                    End If
+                Else
+                    linea = linea + 1
+                End If
+            End While
+            MsgBox("Carga de enrolamiento correcto")
+        End If
     End Sub
 End Class

@@ -88,7 +88,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -136,7 +136,7 @@
     <Compile Include="cargas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clase.vb" />
+    <Compile Include="Clases\Clase.vb" />
     <Compile Include="asistencia.Designer.vb">
       <DependentUpon>asistencia.vb</DependentUpon>
     </Compile>
@@ -149,7 +149,7 @@
     <Compile Include="acceso.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Encriptar.vb" />
+    <Compile Include="Clases\Encriptar.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -172,7 +172,7 @@
     <Compile Include="variables.vb" />
     <Compile Include="procesos_nomina.vb" />
     <Compile Include="procesos_carga.vb" />
-    <Compile Include="deducciones.vb" />
+    <Compile Include="Clases\deducciones.vb" />
     <Compile Include="procesos.Designer.vb">
       <DependentUpon>procesos.vb</DependentUpon>
     </Compile>

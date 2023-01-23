@@ -119,9 +119,9 @@ Partial Class acceso
         Me.lbl_version.AutoSize = True
         Me.lbl_version.Location = New System.Drawing.Point(169, 16)
         Me.lbl_version.Name = "lbl_version"
-        Me.lbl_version.Size = New System.Drawing.Size(50, 13)
+        Me.lbl_version.Size = New System.Drawing.Size(44, 13)
         Me.lbl_version.TabIndex = 8
-        Me.lbl_version.Text = "Ver. 2.14"
+        Me.lbl_version.Text = "Ver. 3.0"
         '
         'acceso
         '
